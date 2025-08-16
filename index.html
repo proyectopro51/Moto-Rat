@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Moto Rat</title>
+  <meta name="description" content="Moto Rat — Productos y marcas. Compare y compruebe." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">Moto Rat</div>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="main-menu">
+          <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+          <li><a href="productos.html"><i class="fas fa-motorcycle"></i> PRODUCTOS</a></li>
+          <li><a href="marcas.html"><i class="fas fa-tags"></i> MARCAS</a></li>
+          <li><a href="blog.html"><i class="fas fa-newspaper"></i> BLOG</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> CONTÁCTANOS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-left">
+        <div class="logo-big">Moto Rat</div>
+        <div class="tag">Agitándolo Todo — <small>-Fundado en 1971-</small></div>
+        <p class="muted">¡Moto Rat: Vive la ruta, rompe las reglas!</p>
+        <div class="ctas">
+          <a class="btn btn-primary pulse" href="productos.html">Ir a los Productos</a>
+          <a class="btn btn-outline" href="contacto.html">Solicita tu Crédito</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2><i class="fas fa-percentage"></i> Las Flexi Cuotas Llegaron Para Quedarse</h2>
+      <p class="muted">Consulta sobre ellas y obtén los mejores precios y las mejores promociones. Solicita tu Crédito con Flexi Cuotas.</p>
+
+      <div class="panel">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-motorcycle"></i></div>
+          <h3>Productos</h3>
+          <p class="muted">Explora nuestra selección de productos destacados.</p>
+          <a href="productos.html" class="card-link">Ir a los Productos <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-tags"></i></div>
+          <h3>Marcas</h3>
+          <p class="muted">Las mejores marcas internacionales.</p>
+          <a href="marcas.html" class="card-link">Ver Marcas <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-star"></i></div>
+          <h3>Promociones</h3>
+          <p class="muted">Artículos, novedades y promociones exclusivas.</p>
+          <a href="productos.html" class="card-link">Ver Promociones <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Moto Rat</h3>
+          <p>Agitándolo todo desde 1971. Productos y accesorios para motociclistas apasionados.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="marcas.html">Marcas</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terminos.html">Términos y condiciones</a></li>
+            <li><a href="privacidad.html">Política de privacidad</a></li>
+            <li><a href="cookies.html">Política de cookies</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-links">
+            <a href="#facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">Derechos Reservados a Las ratas del 12-5 — &copy; <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <div class="cookie" id="cookieBar" role="dialog" aria-live="polite">
+    <div class="cookie-content">
+      Utilizamos cookies para garantizar una experiencia de navegación fluida. Al continuar, asumimos que acepta el uso de cookies.
+      <a href="cookies.html" style="color: var(--primary);">Más información</a>.
+    </div>
+    <div class="cookie-buttons">
+      <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Aceptar</button>
+      <button class="cookie-btn cookie-btn-more" onclick="document.getElementById('cookieBar').style.display='none'">Rechazar</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
