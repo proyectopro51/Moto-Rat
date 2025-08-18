@@ -7,12 +7,76 @@
   <meta name="description" content="Moto Rat — Productos y marcas. Compare y compruebe.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Estilos adicionales solo para los nuevos elementos */
+    .moving-text {
+      display: inline-block;
+      animation: moveText 3s infinite alternate;
+    }
+    
+    @keyframes moveText {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(10px); }
+    }
+    
+    .color-change {
+      animation: colorChange 5s infinite alternate;
+    }
+    
+    @keyframes colorChange {
+      0% { color: #e63946; }
+      50% { color: #f4a261; }
+      100% { color: #e9c46a; }
+    }
+    
+    .moving-image-container {
+      position: relative;
+      height: 200px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+    
+    .moving-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: zoomPan 15s infinite;
+    }
+    
+    @keyframes zoomPan {
+      0% { transform: scale(1) translateX(0); }
+      50% { transform: scale(1.05) translateX(5%); }
+      100% { transform: scale(1) translateX(0); }
+    }
+    
+    table.comparison {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    
+    table.comparison th, table.comparison td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    
+    table.comparison th {
+      background-color: #1d3557;
+      color: white;
+    }
+    
+    table.comparison tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
 </head>
 <body>
 
   <header>
     <div class="container nav">
-      <div class="brand">Moto Rat</div>
+      <div class="brand color-change">Moto Rat</div>
       <button class="menu-toggle" aria-label="Toggle menu">
         <i class="fas fa-bars"></i>
       </button>
@@ -31,8 +95,8 @@
   <main>
     <section class="hero container" style="background: url('motoindex.jpg') center/cover no-repeat;">
       <div class="hero-left">
-        <div class="logo-big">Moto Rat</div>
-        <div class="tag">Agitándolo Todo — <small>-Fundado en 1971-</small></div>
+        <div class="logo-big color-change">Moto Rat</div>
+        <div class="tag"><span class="moving-text">Agitándolo Todo</span> — <small>-Fundado en 1971-</small></div>
         <p class="muted">¡Moto Rat: Vive la ruta, rompe las reglas!</p>
         <div class="ctas">
           <a class="btn btn-primary pulse" href="productos.html">Ir a los Productos</a>
@@ -42,7 +106,7 @@
     </section>
 
     <section class="section container">
-      <h2><i class="fas fa-percentage"></i> Las Flexi Cuotas Llegaron Para Quedarse</h2>
+      <h2><i class="fas fa-percentage"></i> Las <span class="moving-text">Flexi Cuotas</span> Llegaron Para Quedarse</h2>
       <p class="muted">Consulta sobre ellas y obtén los mejores precios y las mejores promociones. Solicita tu Crédito con Flexi Cuotas.</p>
 
       <div class="panel">
@@ -66,6 +130,40 @@
           <p class="muted">Artículos, novedades y promociones exclusivas.</p>
           <a href="productos.html" class="card-link">Ver Promociones <i class="fas fa-arrow-right"></i></a>
         </div>
+      </div>
+      
+      <!-- Tabla comparativa añadida -->
+      <h2 style="margin-top: 40px;"><i class="fas fa-table"></i> Comparativa de Productos</h2>
+      <table class="comparison">
+        <tr>
+          <th>Producto</th>
+          <th>Marca</th>
+          <th>Precio</th>
+          <th>Stock</th>
+        </tr>
+        <tr>
+          <td>Casco X-Speed</td>
+          <td>AGV</td>
+          <td>$299.99</td>
+          <td>Disponible</td>
+        </tr>
+        <tr>
+          <td>Guantes Racing</td>
+          <td>Alpinestars</td>
+          <td>$129.99</td>
+          <td>Últimas unidades</td>
+        </tr>
+        <tr>
+          <td>Chaquetas GP</td>
+          <td>Dainese</td>
+          <td>$399.99</td>
+          <td>Disponible</td>
+        </tr>
+      </table>
+      
+      <!-- Imagen en movimiento añadida -->
+      <div class="moving-image-container">
+        <img src="https://images.unsplash.com/photo-1580310614697-1a03b1a28c4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Moto deportiva" class="moving-image">
       </div>
     </section>
   </main>
@@ -121,7 +219,16 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script>
+    // Script adicional para las nuevas funcionalidades
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Cambio de color aleatorio para el logo
+    setInterval(function() {
+      const colors = ['#e63946', '#1d3557', '#457b9d', '#a8dadc', '#f1faee', '#e9c46a'];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.querySelector('.brand').style.color = randomColor;
+    }, 3000);
+  </script>
 </body>
 </html>
-
-
