@@ -1,9 +1,9 @@
 <?php
+// Iniciar sesión para almacenar mensajes entre redirecciones
+session_start();
+
 // Encabezado obligatorio para evitar descarga
 header('Content-Type: text/html; charset=utf-8');
-
-// Incluir conexión a la base de datos (si es necesario)
-// require_once 'includes/conexion.php';
 
 // Procesar formulario si es POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -23,28 +23,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // En un caso real, aquí se insertaría en la base de datos
             // Por ahora simulamos el guardado exitoso
             $id_simulado = rand(1000, 9999);
-            $mensaje_exito = "Mensaje enviado correctamente. ID: " . $id_simulado;
+            $_SESSION['mensaje_exito'] = "Mensaje enviado correctamente. ID: " . $id_simulado;
             
-            // En un caso real, descomenta esto para usar la base de datos:
-            /*
-            $stmt = $conexion->prepare("INSERT INTO contactos (nombre, email, mensaje) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $nombre, $email, $mensaje);
-            $stmt->execute();
-            $mensaje_exito = "Mensaje enviado correctamente. ID: " . $stmt->insert_id;
-            $stmt->close();
-            */
+            // Redirigir para evitar reenvío del formulario
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit();
         } catch (Exception $e) {
             $errores[] = "Error al guardar: " . $e->getMessage();
+            $_SESSION['errores'] = $errores;
         }
+    } else {
+        $_SESSION['errores'] = $errores;
     }
 }
+
+// Recuperar mensajes de sesión
+$errores = $_SESSION['errores'] ?? [];
+$mensaje_exito = $_SESSION['mensaje_exito'] ?? '';
+
+// Limpiar mensajes de sesión después de mostrarlos
+unset($_SESSION['errores']);
+unset($_SESSION['mensaje_exito']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Moto Rat</title>
+    <title>Resultado del Contacto - Moto Rat</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Mismo CSS que en contacto.html */
@@ -328,10 +334,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             color: #d32f2f;
             text-decoration: none;
             font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #d32f2f;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
         
         .back-link a:hover {
-            text-decoration: underline;
+            background-color: #d32f2f;
+            color: white;
         }
     </style>
 </head>
