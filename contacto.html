@@ -1,130 +1,53 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contacto - Moto Rat</title>
-  <meta name="description" content="Contacta con Moto Rat">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-  <header>
-    <div class="container nav">
-      <div class="brand">Moto Rat</div>
-      <button class="menu-toggle" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
-      </button>
-      <nav>
-        <ul id="main-menu">
-          <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
-          <li><a href="productos.html"><i class="fas fa-motorcycle"></i> PRODUCTOS</a></li>
-          <li><a href="marcas.html"><i class="fas fa-tags"></i> MARCAS</a></li>
-          <li><a href="blog.html"><i class="fas fa-newspaper"></i> BLOG</a></li>
-          <li><a href="contacto.html"><i class="fas fa-envelope"></i> CONTÁCTANOS</a></li>
-        </ul>
-      </nav>
+<!-- Cambiar el primer formulario a: -->
+<form class="contact-form" id="contactForm" method="POST" action="includes/procesar_contacto.php">
+  <div class="form-row">
+    <div class="form-group">
+      <input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
     </div>
-  </header>
+    <div class="form-group">
+      <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="text" name="asunto" class="form-control" placeholder="Asunto">
+  </div>
+  <div class="form-group">
+    <textarea name="mensaje" class="form-control" placeholder="Tu mensaje" required></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">Enviar Mensaje</button>
+  <div id="formFeedback" style="margin-top: 16px; display: none;"></div>
+</form>
 
-  <main>
-    <section class="hero container" style="background: url('contacto.jpg') center/cover no-repeat;">
-      <div class="hero-left">
-        <div class="logo-big">Contáctanos</div>
-        <div class="tag">Estamos aquí para ayudarte</div>
-      </div>
-    </section>
-
-    <section class="section container">
-      <div class="panel">
-        <div class="card" style="flex: 2;">
-          <h2><i class="fas fa-envelope"></i> Envíanos un mensaje</h2>
-          <form class="contact-form" id="contactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nombre" required>
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control" placeholder="Correo electrónico" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Asunto">
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" placeholder="Tu mensaje" required></textarea>
-            </div>
-            <button class="btn btn-primary" type="submit">Enviar Mensaje</button>
-            <div id="formFeedback" style="margin-top: 16px; display: none;"></div>
-          </form>
-        </div>
-
-        <div class="card">
-          <h2><i class="fas fa-map-marker-alt"></i> Visítanos</h2>
-          <p style="margin-bottom: 16px;">
-            <strong>Moto Rat Headquarters</strong><br>
-            Calle del Motor 123<br>
-            Ciudad Motera, CP 45678
-          </p>
-          
-          <h3><i class="fas fa-phone"></i> Contacto</h3>
-          <p style="margin-bottom: 16px;">
-            Tel: +504 9706-3535<br>
-            Email: proyectopro768@gmail.com
-          </p>
-          
-          <h3><i class="fas fa-clock"></i> Horario</h3>
-          <p>
-            Lunes a Viernes: 9am - 7pm<br>
-            Sábados: 10am - 4pm<br>
-            Domingos: Cerrado
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section container">
-      <h2><i class="fas fa-credit-card"></i> Solicita tu Crédito</h2>
-      <p class="muted">Completa este formulario para pre-calificarte a nuestras Flexi Cuotas.</p>
-      
-      <form style="max-width: 640px; margin-top: 24px;">
-        <div class="form-row">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Nombre completo" required>
-          </div>
-          <div class="form-group">
-            <input type="email" class="form-control" placeholder="Correo electrónico" required>
-          </div>
-        </div>
-        
-        <div class="form-row">
-          <div class="form-group">
-            <input type="tel" class="form-control" placeholder="Teléfono" required>
-          </div>
-          <div class="form-group">
-            <input type="number" class="form-control" placeholder="Monto solicitado" required>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <select class="form-control" required>
-            <option value="" disabled selected>Selecciona un producto de interés</option>
-            <option>Moto deportiva</option>
-            <option>Accesorios</option>
-            <option>Refacciones</option>
-            <option>Equipo de protección</option>
-          </select>
-        </div>
-        
-        <button class="btn btn-primary" type="submit">Solicitar Crédito</button>
-      </form>
-    </section>
-  </main>
-
-  <!-- Footer igual que index.html -->
+<!-- Cambiar el segundo formulario a: -->
+<form id="creditoForm" method="POST" action="includes/procesar_credito.php" style="max-width: 640px; margin-top: 24px;">
+  <div class="form-row">
+    <div class="form-group">
+      <input type="text" name="nombre_completo" class="form-control" placeholder="Nombre completo" required>
+    </div>
+    <div class="form-group">
+      <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
+    </div>
+  </div>
   
-  <script src="js/main.js"></script>
-</body>
-</html>
-
+  <div class="form-row">
+    <div class="form-group">
+      <input type="tel" name="telefono" class="form-control" placeholder="Teléfono" required>
+    </div>
+    <div class="form-group">
+      <input type="number" name="monto_solicitado" class="form-control" placeholder="Monto solicitado" required step="0.01">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <select name="producto_interes" class="form-control" required>
+      <option value="" disabled selected>Selecciona un producto de interés</option>
+      <option value="Moto deportiva">Moto deportiva</option>
+      <option value="Accesorios">Accesorios</option>
+      <option value="Refacciones">Refacciones</option>
+      <option value="Equipo de protección">Equipo de protección</option>
+    </select>
+  </div>
+  
+  <button class="btn btn-primary" type="submit">Solicitar Crédito</button>
+  <div id="creditoFeedback" style="margin-top: 16px; display: none;"></div>
+</form>
