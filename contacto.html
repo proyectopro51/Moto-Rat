@@ -1,95 +1,133 @@
-<?php
-// Encabezado obligatorio para evitar descarga
-header('Content-Type: text/html; charset=utf-8');
-
-// Incluir conexión a la base de datos
-require_once 'conexion.php';
-
-// Procesar formulario si es POST
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Sanitizar y validar datos
-    $nombre = htmlspecialchars($_POST['nombre'] ?? '');
-    $email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
-    $mensaje = htmlspecialchars($_POST['mensaje'] ?? '');
-    
-    // Validaciones básicas
-    $errores = [];
-    if (empty($nombre)) $errores[] = "El nombre es requerido";
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errores[] = "Email inválido";
-    if (empty($mensaje)) $errores[] = "El mensaje es requerido";
-    
-    if (empty($errores)) {
-        try {
-            // Insertar en base de datos (ejemplo)
-            $stmt = $conexion->prepare("INSERT INTO contactos (nombre, email, mensaje) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $nombre, $email, $mensaje);
-            $stmt->execute();
-            
-            $mensaje_exito = "Mensaje enviado correctamente. ID: " . $stmt->insert_id;
-            $stmt->close();
-        } catch (Exception $e) {
-            $errores[] = "Error al guardar: " . $e->getMessage();
-        }
-    }
-}
-?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Moto Rat</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contacto - Moto Rat</title>
+  <meta name="description" content="Contacta con Moto Rat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <!-- Tu encabezado aquí -->
-    </header>
 
-    <main>
-        <section class="contact-form">
-            <h1>Contacto</h1>
-            
-            <?php if (!empty($errores)): ?>
-                <div class="alert error">
-                    <ul>
-                        <?php foreach ($errores as $error): ?>
-                            <li><?= $error ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            <?php endif; ?>
-            
-            <?php if (isset($mensaje_exito)): ?>
-                <div class="alert success">
-                    <?= $mensaje_exito ?>
-                </div>
-            <?php endif; ?>
-            
-            <form method="POST" action="contactos.php">
-                <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" required></textarea>
-                </div>
-                
-                <button type="submit">Enviar Mensaje</button>
-            </form>
-        </section>
-    </main>
+  <header>
+    <div class="container nav">
+      <div class="brand">Moto Rat</div>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="main-menu">
+          <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+          <li><a href="productos.html"><i class="fas fa-motorcycle"></i> PRODUCTOS</a></li>
+          <li><a href="marcas.html"><i class="fas fa-tags"></i> MARCAS</a></li>
+          <li><a href="blog.html"><i class="fas fa-newspaper"></i> BLOG</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> CONTÁCTANOS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <main>
+    <section class="hero container" style="background: url('contacto.jpg') center/cover no-repeat;">
+      <div class="hero-left">
+        <div class="logo-big">Contáctanos</div>
+        <div class="tag">Estamos aquí para ayudarte</div>
+      </div>
+    </section>
 
-    <script src="assets/js/main.js"></script>
+    <section class="section container">
+      <div class="panel">
+        <div class="card" style="flex: 2;">
+          <h2><i class="fas fa-envelope"></i> Envíanos un mensaje</h2>
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nombre" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Correo electrónico" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Asunto">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" placeholder="Tu mensaje" required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Enviar Mensaje</button>
+            <div id="formFeedback" style="margin-top: 16px; display: none;"></div>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2><i class="fas fa-map-marker-alt"></i> Visítanos</h2>
+          <p style="margin-bottom: 16px;">
+            <strong>Moto Rat Headquarters</strong><br>
+            Calle del Motor 123<br>
+            Ciudad Motera, CP 45678
+          </p>
+          
+          <h3><i class="fas fa-phone"></i> Contacto</h3>
+          <p style="margin-bottom: 16px;">
+            Tel: +504 9706-3535<br>
+            Email: proyectopro768@gmail.com
+          </p>
+          
+          <h3><i class="fas fa-clock"></i> Horario</h3>
+          <p>
+            Lunes a Viernes: 9am - 7pm<br>
+            Sábados: 10am - 4pm<br>
+            Domingos: Cerrado
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2><i class="fas fa-credit-card"></i> Solicita tu Crédito</h2>
+      <p class="muted">Completa este formulario para pre-calificarte a nuestras Flexi Cuotas.</p>
+      
+      <form style="max-width: 640px; margin-top: 24px;">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Nombre completo" required>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Correo electrónico" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <input type="tel" class="form-control" placeholder="Teléfono" required>
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" placeholder="Monto solicitado" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <select class="form-control" required>
+            <option value="" disabled selected>Selecciona un producto de interés</option>
+            <option>Moto deportiva</option>
+            <option>Accesorios</option>
+            <option>Refacciones</option>
+            <option>Equipo de protección</option>
+          </select>
+        </div>
+        
+        <button class="btn btn-primary" type="submit">Solicitar Crédito</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer igual que index.html -->
+  
+  <script src="js/main.js"></script>
 </body>
 </html>
+
+
 
 
