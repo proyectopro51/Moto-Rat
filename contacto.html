@@ -1,132 +1,344 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contacto - Moto Rat</title>
-  <meta name="description" content="Contacta con Moto Rat">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Moto Rat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(90deg, #d32f2f 0%, #b71c1c 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 2.2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 2rem 0;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        .page-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #d32f2f;
+        }
+        
+        .page-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: #444;
+            font-size: 1.1rem;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #d32f2f;
+            box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+        }
+        
+        textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+        
+        button {
+            background: linear-gradient(90deg, #d32f2f 0%, #b71c1c 100%);
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            gap: 20px;
+        }
+        
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-card i {
+            font-size: 2.5rem;
+            color: #d32f2f;
+            margin-bottom: 15px;
+        }
+        
+        .info-card h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-icons {
+            margin: 20px 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #d32f2f;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1.5rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .contact-form {
+                padding: 1.8rem;
+            }
+            
+            .page-title h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <header>
-    <div class="container nav">
-      <div class="brand">Moto Rat</div>
-      <button class="menu-toggle" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
-      </button>
-      <nav>
-        <ul id="main-menu">
-          <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
-          <li><a href="productos.html"><i class="fas fa-motorcycle"></i> PRODUCTOS</a></li>
-          <li><a href="marcas.html"><i class="fas fa-tags"></i> MARCAS</a></li>
-          <li><a href="blog.html"><i class="fas fa-newspaper"></i> BLOG</a></li>
-          <li><a href="contacto.html"><i class="fas fa-envelope"></i> CONTÁCTANOS</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero container" style="background: url('contacto.jpg') center/cover no-repeat;">
-      <div class="hero-left">
-        <div class="logo-big">Contáctanos</div>
-        <div class="tag">Estamos aquí para ayudarte</div>
-      </div>
-    </section>
-
-    <section class="section container">
-      <div class="panel">
-        <div class="card" style="flex: 2;">
-          <h2><i class="fas fa-envelope"></i> Envíanos un mensaje</h2>
-          <form class="contact-form" id="contactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nombre" required>
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control" placeholder="Correo electrónico" required>
-              </div>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-motorcycle"></i>
+                <span>Moto Rat</span>
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Asunto">
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" placeholder="Tu mensaje" required></textarea>
-            </div>
-            <button class="btn btn-primary" type="submit">Enviar Mensaje</button>
-            <div id="formFeedback" style="margin-top: 16px; display: none;"></div>
-          </form>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="#"><i class="fas fa-warehouse"></i> Productos</a></li>
+                    <li><a href="#"><i class="fas fa-tools"></i> Servicios</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> Contacto</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div class="card">
-          <h2><i class="fas fa-map-marker-alt"></i> Visítanos</h2>
-          <p style="margin-bottom: 16px;">
-            <strong>Moto Rat Headquarters</strong><br>
-            Calle del Motor 123<br>
-            Ciudad Motera, CP 45678
-          </p>
-          
-          <h3><i class="fas fa-phone"></i> Contacto</h3>
-          <p style="margin-bottom: 16px;">
-            Tel: +504 9706-3535<br>
-            Email: proyectopro768@gmail.com
-          </p>
-          
-          <h3><i class="fas fa-clock"></i> Horario</h3>
-          <p>
-            Lunes a Viernes: 9am - 7pm<br>
-            Sábados: 10am - 4pm<br>
-            Domingos: Cerrado
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section container">
-      <h2><i class="fas fa-credit-card"></i> Solicita tu Crédito</h2>
-      <p class="muted">Completa este formulario para pre-calificarte a nuestras Flexi Cuotas.</p>
-      
-      <form style="max-width: 640px; margin-top: 24px;">
-        <div class="form-row">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Nombre completo" required>
-          </div>
-          <div class="form-group">
-            <input type="email" class="form-control" placeholder="Correo electrónico" required>
-          </div>
+    <main class="container">
+        <div class="page-title">
+            <h1>Contáctanos</h1>
+            <p>Estamos aquí para ayudarte. Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
         </div>
         
-        <div class="form-row">
-          <div class="form-group">
-            <input type="tel" class="form-control" placeholder="Teléfono" required>
-          </div>
-          <div class="form-group">
-            <input type="number" class="form-control" placeholder="Monto solicitado" required>
-          </div>
-        </div>
+        <section class="contact-form">
+            <form method="POST" action="contacto.php">
+                <div class="form-group">
+                    <label for="nombre"><i class="fas fa-user"></i> Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="tu.email@ejemplo.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensaje"><i class="fas fa-comment"></i> Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
+                
+                <button type="submit"><i class="fas fa-paper-plane"></i> Enviar Mensaje</button>
+            </form>
+        </section>
         
-        <div class="form-group">
-          <select class="form-control" required>
-            <option value="" disabled selected>Selecciona un producto de interés</option>
-            <option>Moto deportiva</option>
-            <option>Accesorios</option>
-            <option>Refacciones</option>
-            <option>Equipo de protección</option>
-          </select>
+        <div class="contact-info">
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Dirección</h3>
+                <p>Av. Principal #123</p>
+                <p>Ciudad, CP 28000</p>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-phone"></i>
+                <h3>Teléfono</h3>
+                <p>(123) 456-7890</p>
+                <p>(098) 765-4321</p>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>info@motorat.com</p>
+                <p>ventas@motorat.com</p>
+            </div>
         </div>
-        
-        <button class="btn btn-primary" type="submit">Solicitar Crédito</button>
-      </form>
-    </section>
-  </main>
+    </main>
 
-  <!-- Footer igual que index.html -->
-  
-  <script src="js/main.js"></script>
+    <footer>
+        <div class="container footer-content">
+            <p>© 2023 Moto Rat - Todos los derechos reservados</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>Desarrollado con <i class="fas fa-heart" style="color: #d32f2f;"></i> para los amantes de las motos</p>
+        </div>
+    </footer>
 </body>
 </html>
+
 
 
 
