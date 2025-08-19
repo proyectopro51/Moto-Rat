@@ -70,6 +70,16 @@
     table.comparison tr:nth-child(even) {
       background-color: #f2f2f2;
     }
+    .cookie-btn {
+  background-color: #FFA500;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
   </style>
 </head>
 <body>
@@ -213,8 +223,8 @@
       <a href="cookies.html" style="color: var(--primary);">Más información</a>.
     </div>
     <div class="cookie-buttons">
-      <button class="cookie-btn cookie-btn-more" onclick="document.getElementById('cookieBar').style.display='none'">Aceptar</button>
-      <button class="cookie-btn cookie-btn-more" onclick="document.getElementById('cookieBar').style.display='none'">Rechazar</button>
+      <button class="cookie-btn" onclick="document.getElementById('cookieBar').style.display='none'">Aceptar</button>
+    <button class="cookie-btn" onclick="document.getElementById('cookieBar').style.display='none'">Rechazar</button>
     </div>
   </div>
 
@@ -232,6 +242,7 @@
   </script>
 </body>
 </html>
+
 
 
 
