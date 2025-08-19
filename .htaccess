@@ -1,9 +1,24 @@
+# Activar PHP
 AddHandler application/x-httpd-php .php
 AddType text/html .php
 
+# Configuración básica de seguridad
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    Options -Indexes
+    
+    # Redireccionar errores 404
+    ErrorDocument 404 /404.php
+    
+    # Proteger archivos sensibles
+    <FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql)$">
+        Order Allow,Deny
+        Deny from all
+    </FilesMatch>
 </IfModule>
 
-# Evitar que se listen los archivos
-Options -Indexes
+# Configuración de caché
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 day"
+</IfModule>
