@@ -1,54 +1,96 @@
-<!-- Cambiar el primer formulario a: -->
-<form class="contact-form" id="contactForm" method="POST" action="procesar_contacto.php">
-  <div class="form-row">
-    <div class="form-group">
-      <input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
-    </div>
-    <div class="form-group">
-      <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
-    </div>
-  </div>
-  <div class="form-group">
-    <input type="text" name="asunto" class="form-control" placeholder="Asunto">
-  </div>
-  <div class="form-group">
-    <textarea name="mensaje" class="form-control" placeholder="Tu mensaje" required></textarea>
-  </div>
-  <button class="btn btn-primary" type="submit">Enviar Mensaje</button>
-  <div id="formFeedback" style="margin-top: 16px; display: none;"></div>
-</form>
+<?php
+// Encabezado obligatorio para evitar descarga
+header('Content-Type: text/html; charset=utf-8');
 
-<!-- Cambiar el segundo formulario a: -->
-<form id="creditoForm" method="POST" action="procesar_credito.php" style="max-width: 640px; margin-top: 24px;">
-  <div class="form-row">
-    <div class="form-group">
-      <input type="text" name="nombre_completo" class="form-control" placeholder="Nombre completo" required>
-    </div>
-    <div class="form-group">
-      <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
-    </div>
-  </div>
-  
-  <div class="form-row">
-    <div class="form-group">
-      <input type="tel" name="telefono" class="form-control" placeholder="Teléfono" required>
-    </div>
-    <div class="form-group">
-      <input type="number" name="monto_solicitado" class="form-control" placeholder="Monto solicitado" required step="0.01">
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <select name="producto_interes" class="form-control" required>
-      <option value="" disabled selected>Selecciona un producto de interés</option>
-      <option value="Moto deportiva">Moto deportiva</option>
-      <option value="Accesorios">Accesorios</option>
-      <option value="Refacciones">Refacciones</option>
-      <option value="Equipo de protección">Equipo de protección</option>
-    </select>
-  </div>
-  
-  <button class="btn btn-primary" type="submit">Solicitar Crédito</button>
-  <div id="creditoFeedback" style="margin-top: 16px; display: none;"></div>
-</form>
+// Incluir conexión a la base de datos
+require_once 'includes/conexion.php';
 
+// Procesar formulario si es POST
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Sanitizar y validar datos
+    $nombre = htmlspecialchars($_POST['nombre'] ?? '');
+    $email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
+    $mensaje = htmlspecialchars($_POST['mensaje'] ?? '');
+    
+    // Validaciones básicas
+    $errores = [];
+    if (empty($nombre)) $errores[] = "El nombre es requerido";
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errores[] = "Email inválido";
+    if (empty($mensaje)) $errores[] = "El mensaje es requerido";
+    
+    if (empty($errores)) {
+        try {
+            // Insertar en base de datos (ejemplo)
+            $stmt = $conexion->prepare("INSERT INTO contactos (nombre, email, mensaje) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $nombre, $email, $mensaje);
+            $stmt->execute();
+            
+            $mensaje_exito = "Mensaje enviado correctamente. ID: " . $stmt->insert_id;
+            $stmt->close();
+        } catch (Exception $e) {
+            $errores[] = "Error al guardar: " . $e->getMessage();
+        }
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Moto Rat</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <!-- Tu encabezado aquí -->
+    </header>
+
+    <main>
+        <section class="contact-form">
+            <h1>Contacto</h1>
+            
+            <?php if (!empty($errores)): ?>
+                <div class="alert error">
+                    <ul>
+                        <?php foreach ($errores as $error): ?>
+                            <li><?= $error ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+            
+            <?php if (isset($mensaje_exito)): ?>
+                <div class="alert success">
+                    <?= $mensaje_exito ?>
+                </div>
+            <?php endif; ?>
+            
+            <form method="POST" action="contactos.php">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+                </div>
+                
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Tu pie de página aquí -->
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
