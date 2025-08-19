@@ -1,5 +1,5 @@
 <!-- Cambiar el primer formulario a: -->
-<form class="contact-form" id="contactForm" method="POST" action="includes/procesar_contacto.php">
+<form class="contact-form" id="contactForm" method="POST" action="procesar_contacto.php">
   <div class="form-row">
     <div class="form-group">
       <input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
@@ -19,7 +19,7 @@
 </form>
 
 <!-- Cambiar el segundo formulario a: -->
-<form id="creditoForm" method="POST" action="includes/procesar_credito.php" style="max-width: 640px; margin-top: 24px;">
+<form id="creditoForm" method="POST" action="procesar_credito.php" style="max-width: 640px; margin-top: 24px;">
   <div class="form-row">
     <div class="form-group">
       <input type="text" name="nombre_completo" class="form-control" placeholder="Nombre completo" required>
@@ -51,3 +51,4 @@
   <button class="btn btn-primary" type="submit">Solicitar Crédito</button>
   <div id="creditoFeedback" style="margin-top: 16px; display: none;"></div>
 </form>
+
