@@ -80,6 +80,53 @@
   cursor: pointer;
   font-weight: bold;
 }
+      /* Media queries para responsividad */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--secondary);
+        padding: 1rem;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      nav li {
+        margin: 0.5rem 0;
+      }
+      
+      .ctas {
+        flex-direction: column;
+      }
+      
+      .hero {
+        text-align: center;
+        justify-content: center;
+      }
+      
+      .logo-big {
+        font-size: 3rem;
+      }
+      
+      .cookie {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .cookie-buttons {
+        margin-top: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -250,6 +297,7 @@
   </script>
 </body>
 </html>
+
 
 
 
