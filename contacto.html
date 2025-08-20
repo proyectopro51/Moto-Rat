@@ -40,20 +40,24 @@
       <div class="panel">
         <div class="card" style="flex: 2;">
           <h2><i class="fas fa-envelope"></i> Envíanos un mensaje</h2>
-          <form class="contact-form" id="contactForm">
+          <!-- Formulario de contacto con Formspree -->
+          <form class="contact-form" action="https://formspree.io/f/mdkdrzpv" method="POST">
+            <input type="hidden" name="_subject" value="Nuevo mensaje de contacto - Moto Rat">
+            <input type="hidden" name="_format" value="plain">
+            
             <div class="form-row">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nombre" required>
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
               </div>
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Correo electrónico" required>
+                <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
               </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Asunto">
+              <input type="text" class="form-control" name="asunto" placeholder="Asunto">
             </div>
             <div class="form-group">
-              <textarea class="form-control" placeholder="Tu mensaje" required></textarea>
+              <textarea class="form-control" name="mensaje" placeholder="Tu mensaje" required></textarea>
             </div>
             <button class="btn btn-primary" type="submit">Enviar Mensaje</button>
             <div id="formFeedback" style="margin-top: 16px; display: none;"></div>
@@ -88,27 +92,32 @@
       <h2><i class="fas fa-credit-card"></i> Solicita tu Crédito</h2>
       <p class="muted">Completa este formulario para pre-calificarte a nuestras Flexi Cuotas.</p>
       
-      <form style="max-width: 640px; margin-top: 24px;">
+      <!-- Formulario de crédito con Formspree -->
+      <form action="https://formspree.io/f/mdkdrzpv" method="POST" style="max-width: 640px; margin-top: 24px;">
+        <input type="hidden" name="_subject" value="Solicitud de crédito - Moto Rat">
+        <input type="hidden" name="_format" value="plain">
+        <input type="hidden" name="_formType" value="solicitudCredito">
+        
         <div class="form-row">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Nombre completo" required>
+            <input type="text" class="form-control" name="nombreCompleto" placeholder="Nombre completo" required>
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Correo electrónico" required>
+            <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
           </div>
         </div>
         
         <div class="form-row">
           <div class="form-group">
-            <input type="tel" class="form-control" placeholder="Teléfono" required>
+            <input type="tel" class="form-control" name="telefono" placeholder="Teléfono" required>
           </div>
           <div class="form-group">
-            <input type="number" class="form-control" placeholder="Monto solicitado" required>
+            <input type="number" class="form-control" name="montoSolicitado" placeholder="Monto solicitado" required>
           </div>
         </div>
         
         <div class="form-group">
-          <select class="form-control" required>
+          <select class="form-control" name="productoInteres" required>
             <option value="" disabled selected>Selecciona un producto de interés</option>
             <option>Moto deportiva</option>
             <option>Accesorios</option>
@@ -136,7 +145,7 @@
             <li><a href="productos.html">Productos</a></li>
             <li><a href="marcas.html">Marcas</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <li><a href="contacto.php">Contacto</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
           </ul>
         </div>
         <div class="footer-section">
@@ -161,7 +170,31 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+    // Año actual para el copyright
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Manejo del menú móvil
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.getElementById('main-menu').classList.toggle('show');
+    });
+    
+    // Manejo de envío de formularios
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach(form => {
+      form.addEventListener('submit', function(e) {
+        // Aquí podrías agregar validación adicional si es necesario
+        console.log('Formulario enviado a Formspree');
+        
+        // Opcional: mostrar mensaje de éxito después de enviar
+        setTimeout(() => {
+          alert('¡Formulario enviado con éxito! Te contactaremos pronto.');
+          form.reset();
+        }, 1000);
+      });
+    });
+  </script>
 </body>
 </html>
 
