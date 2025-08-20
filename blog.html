@@ -302,8 +302,26 @@
 
   
   <script src="js/main.js"></script>
+    <script>
+    // Script para el menú hamburguesa
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      const menu = document.getElementById('main-menu');
+      menu.classList.toggle('show');
+    });
+    
+    // Script adicional para las nuevas funcionalidades
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Cambio de color aleatorio para el logo
+    setInterval(function() {
+      const colors = ['#e63946', '#1d3557', '#457b9d', '#a8dadc', '#f1faee', '#e9c46a'];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.querySelector('.brand').style.color = randomColor;
+    }, 3000);
+  </script>
 </body>
 </html>
+
 
 
 
