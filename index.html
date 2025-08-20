@@ -84,7 +84,7 @@
 </head>
 <body>
 
-<header>
+  <header>
     <div class="container nav">
       <div class="brand color-change">Moto Rat</div>
       <button class="menu-toggle" aria-label="Toggle menu" id="menuToggle">
@@ -230,17 +230,7 @@
   </div>
 
   <script src="js/main.js"></script>
-  <script>
-    // Script adicional para las nuevas funcionalidades
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Cambio de color aleatorio para el logo
-    setInterval(function() {
-      const colors = ['#e63946', '#1d3557', '#457b9d', '#a8dadc', '#f1faee', '#e9c46a'];
-      const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      document.querySelector('.brand').style.color = randomColor;
-    }, 3000);
-  </script>
+ 
     <script>
     // Script para el menú hamburguesa
     document.getElementById('menuToggle').addEventListener('click', function() {
@@ -260,6 +250,7 @@
   </script>
 </body>
 </html>
+
 
 
 
