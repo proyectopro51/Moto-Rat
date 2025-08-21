@@ -6,7 +6,6 @@
   <title>Productos - Moto Rat</title>
   <meta name="description" content="Catálogo de productos Moto Rat">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
   <style>
      /* Estilos base */
     :root {
@@ -37,7 +36,8 @@
       margin: 0 auto;
       padding: 0 15px;
     } 
-  /* Header y navegación */
+    
+    /* Header y navegación */
     header {
       background-color: var(--secondary);
       color: white;
@@ -52,6 +52,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
     }
     
     .brand {
@@ -92,8 +93,215 @@
       color: white;
       font-size: 1.5rem;
       cursor: pointer;
+      z-index: 1001;
     }
-     /* Media queries para responsividad */
+    
+    /* Hero section */
+    .hero {
+      height: 300px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-left {
+      position: relative;
+      z-index: 1;
+      color: white;
+      padding: 2rem;
+    }
+    
+    .logo-big {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tag {
+      font-size: 1.2rem;
+    }
+    
+    /* Secciones */
+    .section {
+      margin-bottom: 3rem;
+    }
+    
+    .section h2 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .section h2 i {
+      margin-right: 0.5rem;
+    }
+    
+    .muted {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Productos */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .product-card {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .product-img {
+      height: 200px;
+      overflow: hidden;
+      background-color: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .product-body {
+      padding: 1rem;
+    }
+    
+    .product-badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-price {
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+    
+    .product-price s {
+      color: var(--muted);
+      margin-right: 0.5rem;
+    }
+    
+    /* Botones */
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .btn:hover {
+      background-color: #c1121f;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Media queries para responsividad */
+    @media (max-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
@@ -108,6 +316,7 @@
         right: 0;
         background-color: var(--secondary);
         padding: 1rem;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
       }
       
       nav ul.show {
@@ -118,30 +327,29 @@
         margin: 0.5rem 0;
       }
       
-      .ctas {
-        flex-direction: column;
+      .logo-big {
+        font-size: 2.5rem;
       }
       
-      .hero {
-        text-align: center;
-        justify-content: center;
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
       }
       
       .logo-big {
-        font-size: 3rem;
+        font-size: 2rem;
       }
-      
-      .cookie {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .cookie-buttons {
-        margin-top: 1rem;
-      }
-    
     }
-</style>
+  </style>
 </head>
 <body>
 
@@ -164,7 +372,7 @@
   </header>
 
   <main>
-    <section class="hero container" style="background: url('moto2.jpg') center/cover no-repeat;">
+    <section class="hero container" style="background: url('https://placehold.co/1200x600/1d3557/white?text=Moto+Rat') center/cover no-repeat;">
       <div class="hero-left">
         <div class="logo-big">Nuestros Productos</div>
         <div class="tag">Calidad y rendimiento para tu moto</div>
@@ -178,7 +386,7 @@
       <div class="product-grid">
         <div class="product-card">
           <div class="product-img">
-            <img src="producto1.jpg" alt="Casco deportivo Moto Rat" loading="lazy">
+            <img src="https://placehold.co/300x300/1d3557/white?text=Casco" alt="Casco deportivo Moto Rat" loading="lazy">
           </div>
           <div class="product-body">
             <span class="product-badge">Nuevo</span>
@@ -190,7 +398,7 @@
 
         <div class="product-card">
           <div class="product-img">
-            <img src="producto2.jpg" alt="Guantes de motocross" loading="lazy">
+            <img src="https://placehold.co/300x300/1d3557/white?text=Guantes" alt="Guantes de motocross" loading="lazy">
           </div>
           <div class="product-body">
             <span class="product-badge">Oferta</span>
@@ -202,7 +410,7 @@
 
         <div class="product-card">
           <div class="product-img">
-            <img src="producto3.jpg" alt="Chaqueta de cuero" loading="lazy">
+            <img src="https://placehold.co/300x300/1d3557/white?text=Chaqueta" alt="Chaqueta de cuero" loading="lazy">
           </div>
           <div class="product-body">
             <h3 class="product-title">Chaqueta de Cuero Premium</h3>
@@ -213,7 +421,7 @@
 
         <div class="product-card">
           <div class="product-img">
-            <img src="producto4.jpg" alt="Llantas deportivas" loading="lazy">
+            <img src="https://placehold.co/300x300/1d3557/white?text=Llantas" alt="Llantas deportivas" loading="lazy">
           </div>
           <div class="product-body">
             <h3 class="product-title">Llantas Deportivas MR500</h3>
@@ -224,7 +432,7 @@
 
         <div class="product-card">
           <div class="product-img">
-            <img src="producto5.jpg" alt="Sistema de escape" loading="lazy">
+            <img src="https://placehold.co/300x300/1d3557/white?text=Escape" alt="Sistema de escape" loading="lazy">
           </div>
           <div class="product-body">
             <span class="product-badge">Más vendido</span>
@@ -236,7 +444,7 @@
 
         <div class="product-card">
           <div class="product-img">
-            <img src="producto6.jpg" alt="Kit de herramientas" loading="lazy">
+            <img src="https://placehold.co/300x300/1d3557/white?text=Herramientas" alt="Kit de herramientas" loading="lazy">
           </div>
           <div class="product-body">
             <h3 class="product-title">Kit de Herramientas Profesional</h3>
@@ -247,7 +455,7 @@
 
         <div class="product-card">
           <div class="product-img">
-            <img src="producto7.jpg" alt="Luz LED para moto" loading="lazy">
+            <img src="https://placehold.co/300x300/1d3557/white?text=Luces" alt="Luz LED para moto" loading="lazy">
           </div>
           <div class="product-body">
             <h3 class="product-title">Kit de Luces LED</h3>
@@ -258,7 +466,7 @@
 
         <div class="product-card">
           <div class="product-img">
-            <img src="producto8.jpg" alt="Sillín premium" loading="lazy">
+            <img src="https://placehold.co/300x300/1d3557/white?text=Sillín" alt="Sillín premium" loading="lazy">
           </div>
           <div class="product-body">
             <span class="product-badge">Nuevo</span>
@@ -277,7 +485,7 @@
     </section>
   </main>
 
-    <footer>
+  <footer>
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
@@ -307,7 +515,6 @@
           <div class="social-links">
             <a href="https://www.facebook.com/share/16tjynrNsG/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/h9u47uw7?igsh=anpyMWNwN3Jhc3hj" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
- 
           </div>
         </div>
       </div>
@@ -315,10 +522,45 @@
     </div>
   </footer>
 
-  
-  <script src="js/main.js"></script>
+  <script>
+    // JavaScript para el menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const mainMenu = document.getElementById('main-menu');
+      
+      // Añadir año actual al copyright
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Alternar menú al hacer clic en el botón de hamburguesa
+      menuToggle.addEventListener('click', function() {
+        mainMenu.classList.toggle('show');
+        
+        // Cambiar icono entre hamburguesa y X
+        const icon = menuToggle.querySelector('i');
+        if (mainMenu.classList.contains('show')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Cerrar menú al hacer clic en un enlace (útil en móviles)
+      const menuLinks = document.querySelectorAll('#main-menu a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mainMenu.classList.remove('show');
+          menuToggle.querySelector('i').classList.remove('fa-times');
+          menuToggle.querySelector('i').classList.add('fa-bars');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+
+
 
 
 
