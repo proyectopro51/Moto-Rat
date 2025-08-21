@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Consejos para conducir bajo la lluvia - Moto Rat</title>
+  <meta name="description" content="Guía esencial para una conducción segura en moto bajo condiciones de lluvia" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+     /* Estilos base */
+    :root {
+      --primary: #e63946;
+      --secondary: #1d3557;
+      --accent: #f4a261;
+      --light: #f1faee;
+      --dark: #1d3557;
+      --muted: #6c757d;
+      --rain: #457b9d;
+      --puddle: #a8dadc;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    } 
+    
+    /* Header y navegación */
+    header {
+      background-color: var(--secondary);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav li {
+      margin-left: 1.5rem;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    
+    nav a i {
+      margin-right: 0.5rem;
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Hero section */
+    .hero {
+      height: 400px;
+      display: flex;
+      align-items: center;
+      padding: 2rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(29, 53, 87, 0.7));
+      z-index: 1;
+    }
+    
+    .hero > * {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .logo-big {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    
+    .tag {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+    
+    /* Section styling */
+    .section {
+      padding: 2rem 0;
+    }
+    
+    .legal-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .legal-content h3 {
+      color: var(--rain);
+      margin: 1.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--puddle);
+    }
+    
+    .legal-content p {
+      margin-bottom: 1rem;
+    }
+    
+    /* Tip and warning boxes */
+    .tip-box, .warning-box {
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    .tip-box {
+      background-color: #e8f4fd;
+      border-left: 4px solid var(--rain);
+    }
+    
+    .warning-box {
+      background-color: #ffebee;
+      border-left: 4px solid #f44336;
+    }
+    
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: var(--rain);
+      color: white;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    /* FAQ styling */
+    .faq-item {
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 1rem;
+      background-color: #f5f5f5;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .faq-answer {
+      padding: 0 1rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .faq-answer.active {
+      max-height: 300px;
+      padding: 1rem;
+    }
+    
+    /* Footer styling */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: inline-block;
+      margin-right: 1rem;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #555;
+    }
+    
+    /* Blog specific styles */
+    .blog-date {
+      color: var(--muted);
+      font-style: italic;
+    }
+    
+    /* Rain specific elements */
+    .rain-animation {
+      position: relative;
+      padding: 15px;
+      background: #f0f8ff;
+      border-radius: 8px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+    
+    .rain-animation::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, 
+        transparent, 
+        var(--puddle), 
+        var(--rain), 
+        var(--puddle), 
+        transparent);
+      animation: rainLine 3s infinite linear;
+    }
+    
+    @keyframes rainLine {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    .danger-zones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .danger-zone {
+      flex: 1;
+      min-width: 200px;
+      padding: 15px;
+      border-radius: 8px;
+      background: #fff9e6;
+      border-left: 4px solid #ffaa00;
+    }
+    
+    .danger-zone h4 {
+      margin-top: 0;
+      color: #cc8800;
+      display: flex;
+      align-items: center;
+    }
+    
+    .danger-zone h4 i {
+      margin-right: 8px;
+    }
+    
+    /* Media queries para responsividad */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--secondary);
+        padding: 1rem;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      nav li {
+        margin: 0.5rem 0;
+      }
+      
+      .hero {
+        text-align: center;
+        justify-content: center;
+      }
+      
+      .logo-big {
+        font-size: 2.5rem;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+      }
+      
+      .footer-section {
+        margin-bottom: 2rem;
+      }
+      
+      .danger-zones {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">Moto Rat</div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="main-menu">
+          <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+          <li><a href="productos.html"><i class="fas fa-motorcycle"></i> PRODUCTOS</a></li>
+          <li><a href="marcas.html"><i class="fas fa-tags"></i> MARCAS</a></li>
+          <li><a href="blog.html"><i class="fas fa-newspaper"></i> BLOG</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> CONTÁCTANOS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" style="background: url('https://images.unsplash.com/photo-1596726895343-5b2f2b1b8372?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;">
+      <div class="hero-left">
+        <div class="logo-big">Conducir bajo la lluvia</div>
+        <div class="tag">Consejos esenciales para mantener la seguridad cuando el asfalto se moja</div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="legal-content">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div class="blog-date">18 Septiembre 2023</div>
+          <div style="display: flex; gap: 10px;">
+            <a href="#" class="social-links"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-links"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-links"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <p>Conducir bajo la lluvia presenta desafíos únicos para los motociclistas. La reducción de visibilidad, la disminución de adherencia y las condiciones cambiantes del asfalto requieren técnicas específicas y mayor precaución. En esta guía te proporcionamos consejos prácticos para que puedas enfrentarte a la lluvia con seguridad y confianza.</p>
+        
+        <div class="rain-animation">
+          <p><strong>¿Sabías que?</strong> Los primeros 30 minutos de lluvia son los más peligrosos, ya que el agua se mezcla con la grasa y residuos del asfalto, creando una superficie extremadamente deslizante.</p>
+        </div>
+
+        <h3>1. Preparación antes de salir</h3>
+        <img src="https://images.unsplash.com/photo-1621438699995-1d0f071f5dff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Preparación para lluvia" style="max-width: 100%; height: auto; margin: 16px 0; border-radius: 8px;">
+
+        <p>Una adecuada preparación es clave para enfrentarse a la lluvia con seguridad:</p>
+        
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li><strong>Equipamiento impermeable:</strong> Chaqueta y pantalón con membrana impermeable y transpirable</li>
+          <li><strong>Guantes específicos para lluvia:</strong> Impermeables pero con buena sensibilidad</li>
+          <li><strong>Botas de agua:</strong> Protección hasta por lo menos el tobillo</li>
+          <li><strong>Cubrecuello o buff:</strong> Protege del agua que se cuela por el cuello</li>
+          <li><strong>Tratamiento antiempañante:</strong> Para la visera del casco (sistema Pinlock recomendado)</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Consejo práctico:</strong> Aplica repelente de agua en tu visera y ropa antes de salir. Los productos con base de cerámica duran más que los sprays convencionales.</p>
+        </div>
+
+        <h3>2. Técnicas de conducción en mojado</h3>
+        <img src="https://images.unsplash.com/photo-1626700051175-681c92dcfd84?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Técnicas de conducción bajo lluvia" style="max-width: 100%; height: auto; margin: 16px 0; border-radius: 8px;">
+        
+        <p>Adaptar tu forma de conducir es crucial cuando el pavimento está mojado:</p>
+        
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li><strong>Suavidad en todos los controles:</strong> Acelerador, freno y embrague con movimientos progresivos</li>
+          <li><strong>Reducción de velocidad:</strong> Disminuye tu velocidad al menos un 30% respecto a condiciones secas</li>
+          <li><strong>Aumento de distancia de seguridad:</strong> Duplica o triplica la distancia con el vehículo precedente</li>
+          <li><strong>Anticipación:</strong> Lee el tráfico con mayor anticipación para evitar frenadas bruscas</li>
+          <li><strong>Mirada activa:</strong> Busca constantemente las zonas con mejor adherencia</li>
+          <li><strong>Posición relajada:</strong> Evita tensiones en el manillar que afecten la estabilidad</li>
+        </ul>
+        
+        <div class="warning-box">
+          <p><strong>Atención:</strong> El aquaplaning puede ocurrir a partir de los 50 km/h con solo 3 mm de agua. Si sientes que la dirección se vuelve ligera, reduce velocidad suavemente sin frenar bruscamente.</p>
+        </div>
+
+        <h3>3. Zonas de especial peligro</h3>
+        <p>Algunas superficies y situaciones son particularmente traicioneras con lluvia:</p>
+        
+        <div class="danger-zones">
+          <div class="danger-zone">
+            <h4><i class="fas fa-exclamation-triangle"></i> Marcas viales</h4>
+            <p>Las señales pintadas en el asfalto (pasos de cebra, flechas) se vuelven extremadamente deslizantes.</p>
+          </div>
+          
+          <div class="danger-zone">
+            <h4><i class="fas fa-exclamation-triangle"></i> Hojas caídas</h4>
+            <p>La combinación de hojas mojadas y asfalto crea una superficie con adherencia similar al hielo.</p>
+          </div>
+          
+          <div class="danger-zone">
+            <h4><i class="fas fa-exclamation-triangle"></i> Rejillas y tapas</h4>
+            <p>Metálicas o de plástico, ofrecen muy poca adherencia, especialmente en inclinación.</p>
+          </div>
+          
+          <div class="danger-zone">
+            <h4><i class="fas fa-exclamation-triangle"></i> Primeros minutos</h4>
+            <p>Cuando la lluvia empieza, levanta la suciedad y grasa del asfalto, creando una película deslizante.</p>
+          </div>
+        </div>
+
+        <h3>4. Frenada en mojado</h3>
+        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Frenada bajo lluvia" style="max-width: 100%; height: auto; margin: 16px 0; border-radius: 8px;">
+        
+        <p>Frenar sobre superficies mojadas requiere técnica y anticipación:</p>
+        
+        <table>
+          <tr>
+            <th>Tipo de frenada</th>
+            <th>Técnica recomendada</th>
+            <th>Precauciones</th>
+          </tr>
+          <tr>
+            <td>Frenada de emergencia</td>
+            <td>Uso progresivo de ambos frenos, priorizando el trasero</td>
+            <td>Evitar bloqueos, ABS es altamente recomendable</td>
+          </tr>
+          <tr>
+            <td>Frenada en curva</td>
+            <td>Minimizar frenado, reducir velocidad antes de inclinar</td>
+            <td>Si es inevitable, freno trasero suave y enderezar ligeramente</td>
+          </tr>
+          <tr>
+            <td>Frenada preventiva</td>
+            <td>Toques suaves intermitentes para secar pastillas y disco</td>
+            <td>Especialmente después de cruzar charcos o zonas muy húmedas</td>
+          </tr>
+        </table>
+        
+        <div class="tip-box">
+          <p><strong>Técnica avanzada:</strong> En motos sin ABS, practica la frenada umbral - aplicar suficiente presión para casi bloquear la rueda sin llegar a hacerlo. Esto reduce la distancia de frenado significativamente en mojado.</p>
+        </div>
+
+        <h3>5. Visibilidad y ser visto</h3>
+        <p>Ver y ser visto es el doble desafío cuando llueve:</p>
+        
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li><strong>Luz de cruce:</strong> Obligatoria siempre, crucial con lluvia</li>
+          <li><strong>Chaleco reflectante:</strong> Aumenta tu visibilidad considerablemente</li>
+          <li><strong>Limpiaviseras:</strong> Algunos guantes incluyen esta útil herramienta</li>
+          <li><strong>Tratamiento hidrófugo:</strong> Renueva regularmente el tratamiento de tu visera</li>
+          <li><strong>Posición en carril:</strong> Sitúate donde mejor te vean los demás conductores</li>
+          <li><strong>Evitar ángulos muertos:</strong> Mantente fuera de los puntos ciegos de otros vehículos</li>
+        </ul>
+
+        <h3>6. Qué hacer en caso de torrencial</h3>
+        <img src="https://images.unsplash.com/photo-1596726895343-5b2f2b1b8372?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Lluvia torrencial" style="max-width: 100%; height: auto; margin: 16px 0; border-radius: 8px;">
+        
+        <p>Cuando la lluvia intensa dificulta seriamente la conducción:</p>
+        
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li><strong>Buscar refugio:</strong> Una gasolinera, un aparcamiento o bajo un puente</li>
+          <li><strong>Nunca debajo de árboles:</strong> Riesgo de caída de ramas y rayos</li>
+          <li><strong>Si debes continuar:</strong> Reduce aún más la velocidad y enciende las warning</li>
+          <li><strong>Elegir el carril más seguro:</strong> Normalmente el derecho, lejos de posibles acumulaciones de agua</li>
+          <li><strong>Evitar circular junto al bordillo:</strong> Donde se acumula más agua y suciedad</li>
+        </ul>
+        
+        <div class="warning-box">
+          <p><strong>Importante:</strong> Si la lluvia es tan intensa que no ves a más de 20 metros, es hora de buscar refugio inmediatamente. Ningún destino merece arriesgar tu vida.</p>
+        </div>
+
+        <h3>7. Preguntas frecuentes sobre conducción bajo lluvia</h3>
+        
+        <div class="faq-item">
+          <div class="faq-question">¿Los neumáticos de lluvia son necesarios para circular con agua? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">
+            <p>No son estrictamente necesarios pero mejoran significativamente la seguridad. Los neumáticos de lluvia tienen una banda de rodadura más profunda y compuestos específicos que evacuan mejor el agua. Para uso habitual en zonas lluviosas, son una excelente inversión. Los neumáticos "all season" también ofrecen buen rendimiento en mojado.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">¿Cómo evitar que se empañe la visera por dentro? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">
+            <p>La mejor solución es un sistema Pinlock, que crea una cámara de aire aislante entre dos viseras. Alternativamente, puedes aplicar tratamientos antiempañantes específicos para cascos, mantener una pequeña abertura de ventilación, o usar mascarillas que dirijan el aire exhalado hacia abajo en lugar de hacia la visera.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">¿Es seguro circular sobre charcos? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">
+            <p>Debes evitar charcos siempre que sea posible, ya que no sabes su profundidad ni lo que puede haber bajo el agua. Si no puedes esquivarlos, reduce la velocidad al mínimo, mantén el manillar firme pero relajado, y evita acelerar o frenar mientras atraviesas el charco. Después de salir, aplica suavemente los frenos para secarlos.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">¿Cómo sé si mi equipamiento es realmente impermeable? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">
+            <p>Busca el índice de impermeabilidad (en mm). Menos de 1.500 mm es para lluvia ligera, 1.500-5.000 mm para lluvia moderada, y más de 5.000 mm para lluvia intensa. También fíjate en las costuras selladas y cremalleras con protección. Recuerda que la impermeabilidad puede degradarse con el tiempo y los lavados, por lo que es necesario renovar el tratamiento DWR periódicamente.</p>
+          </div>
+        </div>
+
+        <div style="background: #e8f4fd; padding: 20px; border-radius: 8px; margin: 30px 0; text-align: center; border-left: 4px solid var(--rain);">
+          <h3 style="color: var(--rain); border: none;">¿Necesitas equipamiento para la lluvia?</h3>
+          <p>En Moto Rat tenemos todo lo necesario para que te enfrentes a la lluvia con la máxima seguridad y comodidad.</p>
+          <a href="productos.html" style="display: inline-block; background: var(--rain); color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-top: 10px; font-weight: bold;">Ver equipamiento para lluvia</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Moto Rat</h3>
+          <p>Agitándolo todo desde 1971. Productos y accesorios para motociclistas apasionados.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="marcas.html">Marcas</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terminos.html">Términos y condiciones</a></li>
+            <li><a href="privacidad.html">Política de privacidad</a></li>
+            <li><a href="cookies.html">Política de cookies</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/16tjynrNsG/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/h9u47uw7?igsh=anpyMWNwN3Jhc3hj" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">Derechos Reservados a Las ratas del 12-5 — &copy; <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    // Script para el menú hamburguesa
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      const menu = document.getElementById('main-menu');
+      menu.classList.toggle('show');
+    });
+    
+    // Script para las preguntas frecuentes
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        answer.classList.toggle('active');
+        
+        const icon = question.querySelector('i');
+        if (answer.classList.contains('active')) {
+          icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+        } else {
+          icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+        }
+      });
+    });
+    
+    // Año actual para el copyright
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Cambio de color aleatorio para el logo
+    setInterval(function() {
+      const colors = ['#e63946', '#1d3557', '#457b9d', '#a8dadc', '#f1faee', '#e9c46a'];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.querySelector('.brand').style.color = randomColor;
+    }, 3000);
+  </script>
+</body>
+</html>
