@@ -292,8 +292,44 @@
 
   
   <script src="js/main.js"></script>
+    <script>
+    // JavaScript para el menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const mainMenu = document.getElementById('main-menu');
+      
+      // Añadir año actual al copyright
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Alternar menú al hacer clic en el botón de hamburguesa
+      menuToggle.addEventListener('click', function() {
+        mainMenu.classList.toggle('show');
+        
+        // Cambiar icono entre hamburguesa y X
+        const icon = menuToggle.querySelector('i');
+        if (mainMenu.classList.contains('show')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Cerrar menú al hacer clic en un enlace (útil en móviles)
+      const menuLinks = document.querySelectorAll('#main-menu a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mainMenu.classList.remove('show');
+          menuToggle.querySelector('i').classList.remove('fa-times');
+          menuToggle.querySelector('i').classList.add('fa-bars');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+
 
 
 
