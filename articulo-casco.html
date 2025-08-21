@@ -322,6 +322,59 @@
       <div class="footer-content">
         <div class="footer-section">
           <h3>Moto Rat</h3>
-          <p>Tu tienda especializada en equipamiento y accesorios para motociclistas. Calidad, seguridad y estilo sobre ruedas.</p>
+          <p>Agitándolo todo desde 1971. Productos y accesorios para motociclistas apasionados.</p>
         </div>
+        <div class="footer-section">
+          <h3>Enlaces Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="marcas.html">Marcas</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terminos.html">Términos y condiciones</a></li>
+            <li><a href="privacidad.html">Política de privacidad</a></li>
+            <li><a href="cookies.html">Política de cookies</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/16tjynrNsG/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/h9u47uw7?igsh=anpyMWNwN3Jhc3hj" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+ 
+          </div>
+        </div>
+      </div>
+      <div class="copyright">Derechos Reservados a Las ratas del 12-5 — &copy; <span id="year"></span></div>
+    </div>
+  </footer>
+
+  
+  <script src="js/main.js"></script>
+    <script>
+    // Script para el menú hamburguesa
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      const menu = document.getElementById('main-menu');
+      menu.classList.toggle('show');
+    });
+    
+    // Script adicional para las nuevas funcionalidades
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Cambio de color aleatorio para el logo
+    setInterval(function() {
+      const colors = ['#e63946', '#1d3557', '#457b9d', '#a8dadc', '#f1faee', '#e9c46a'];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.querySelector('.brand').style.color = randomColor;
+    }, 3000);
+  </script>
+</body>
+</html>
+
 
