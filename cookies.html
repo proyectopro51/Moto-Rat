@@ -246,9 +246,35 @@
 
 
   <script src="js/main.js"></script>
+   <script>
+    // Año actual para el copyright
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Manejo del menú móvil
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.getElementById('main-menu').classList.toggle('show');
+    });
+    
+    // Manejo de envío de formularios
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach(form => {
+      form.addEventListener('submit', function(e) {
+        // Aquí podrías agregar validación adicional si es necesario
+        console.log('Formulario enviado a Formspree');
+        
+        // Opcional: mostrar mensaje de éxito después de enviar
+        setTimeout(() => {
+          alert('¡Formulario enviado con éxito! Te contactaremos pronto.');
+          form.reset();
+        }, 1000);
+      });
+    });
+  </script>
 </body>
 
 </html>
+
 
 
 
