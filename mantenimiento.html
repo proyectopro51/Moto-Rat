@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mantenimiento básico de tu moto - Moto Rat</title>
+  <meta name="description" content="Guía esencial para el mantenimiento básico de tu motocicleta" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+     /* Estilos base */
+    :root {
+      --primary: #e63946;
+      --secondary: #1d3557;
+      --accent: #f4a261;
+      --light: #f1faee;
+      --dark: #1d3557;
+      --muted: #6c757d;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    } 
+    
+    /* Header y navegación */
+    header {
+      background-color: var(--secondary);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav li {
+      margin-left: 1.5rem;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    
+    nav a i {
+      margin-right: 0.5rem;
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Hero section */
+    .hero {
+      height: 400px;
+      display: flex;
+      align-items: center;
+      padding: 2rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      margin-bottom: 2rem;
+    }
+    
+    .logo-big {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    
+    .tag {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+    
+    /* Section styling */
+    .section {
+      padding: 2rem 0;
+    }
+    
+    .legal-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .legal-content h3 {
+      color: var(--secondary);
+      margin: 1.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+    }
+    
+    .legal-content p {
+      margin-bottom: 1rem;
+    }
+    
+    /* Tip and warning boxes */
+    .tip-box, .warning-box {
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    
+    .tip-box {
+      background-color: #e8f5e9;
+      border-left: 4px solid #4caf50;
+    }
+    
+    .warning-box {
+      background-color: #ffebee;
+      border-left: 4px solid #f44336;
+    }
+    
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: var(--secondary);
+      color: white;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    /* FAQ styling */
+    .faq-item {
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 1rem;
+      background-color: #f5f5f5;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .faq-answer {
+      padding: 0 1rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .faq-answer.active {
+      max-height: 300px;
+      padding: 1rem;
+    }
+    
+    /* Footer styling */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: inline-block;
+      margin-right: 1rem;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #555;
+    }
+    
+    /* Blog specific styles */
+    .blog-date {
+      color: var(--muted);
+      font-style: italic;
+    }
+    
+    /* Media queries para responsividad */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--secondary);
+        padding: 1rem;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      nav li {
+        margin: 0.5rem 0;
+      }
+      
+      .hero {
+        text-align: center;
+        justify-content: center;
+      }
+      
+      .logo-big {
+        font-size: 2.5rem;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+      }
+      
+      .footer-section {
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">Moto Rat</div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="main-menu">
+          <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+          <li><a href="productos.html"><i class="fas fa-motorcycle"></i> PRODUCTOS</a></li>
+          <li><a href="marcas.html"><i class="fas fa-tags"></i> MARCAS</a></li>
+          <li><a href="blog.html"><i class="fas fa-newspaper"></i> BLOG</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> CONTÁCTANOS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" style="background: url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;">
+      <div class="hero-left">
+        <div class="logo-big">Mantenimiento básico de tu moto</div>
+        <div class="tag">Guía esencial para mantener tu motocicleta en perfecto estado</div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="legal-content">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div class="blog-date">12 Junio 2023</div>
+          <div style="display: flex; gap: 10px;">
+            <a href="#" class="social-links"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-links"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-links"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <p>El mantenimiento regular de tu motocicleta no solo garantiza su buen funcionamiento, sino que también es crucial para tu seguridad en carretera. Con esta guía esencial aprenderás los aspectos básicos del mantenimiento de tu moto que puedes realizar tú mismo, además de conocer cuándo es necesario acudir a un profesional.</p>
+        
+        <h3>1. Comprobaciones diarias o previas a cada viaje</h3>
+        <img src="https://images.unsplash.com/photo-1626700051175-681c92dcfd84?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Revisión básica de motocicleta" style="max-width: 100%; height: auto; margin: 16px 0; border-radius: 8px;">
+
+        <p>Antes de cada salida, realiza estas comprobaciones rápidas que te ayudarán a prevenir problemas:</p>
+        
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li><strong>Neumáticos:</strong> Verifica la presión y el estado general (desgaste, cortes, deformaciones)</li>
+          <li><strong>Frenos:</strong> Comprueba el nivel de líquido de frenos y el desgaste de pastillas</li>
+          <li><strong>Cadena:</strong> Revisa la tensión y lubricación</li>
+          <li><strong>Luces:</strong> Testigo de freno, intermitentes, cortas y largas</li>
+          <li><strong>Niveles:</strong> Aceite motor y líquido refrigerante (si aplica)</li>
+          <li><strong>Espejos:</strong> Ajuste y estado</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Consejo profesional:</strong> Mantén un registro de tus revisiones. Una simple libreta donde anotes fechas y trabajos realizados te ayudará a seguir un mantenimiento adecuado.</p>
+        </div>
+
+        <h3>2. Mantenimiento de la cadena</h3>
+        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Mantenimiento de cadena de moto" style="max-width: 100%; height: auto; margin: 16px 0; border-radius: 8px;">
+        
+        <p>La cadena es uno de los componentes que requiere atención más frecuente. Un mal mantenimiento puede llevar a desgastes prematuros e incluso roturas peligrosas.</p>
+        
+        <p><strong>Limpieza y lubricación:</strong></p>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li>Limpia la cadena con un cepillo y limpiador específico para cadenas</li>
+          <li>Secar completamente antes de lubricar</li>
+          <li>Aplicar lubricante específico para cadenas de moto</li>
+          <li>Realizar este proceso cada 500 km o después de circular bajo lluvia</li>
+        </ul>
+        
+        <p><strong>Ajuste de tensión:</strong></p>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li>Consultar el manual para conocer la holgura recomendada</li>
+          <li>Generalmente entre 2-3 cm de movimiento vertical</li>
+          <li>Comprobar la tensión con la moto en posición vertical y sin carga</li>
+          <li>Asegurar que la cadena tenga la misma tensión en todos los puntos</li>
+        </ul>
+
+        <h3>3. Mantenimiento de frenos</h3>
+        <p>Los frenos son cruciales para tu seguridad. Su mantenimiento incluye:</p>
+        
+        <table>
+          <tr>
+            <th>Componente</th>
+            <th>Inspección</th>
+            <th>Frecuencia</th>
+          </tr>
+          <tr>
+            <td>Pastillas de freno</td>
+            <td>Grosor (mínimo 2-3mm)</td>
+            <td>Cada 5,000 km</td>
+          </tr>
+          <tr>
+            <td>Discos</td>
+            <td>Grosor y deformaciones</td>
+            <td>Cada 10,000 km</td>
+          </tr>
+          <tr>
+            <td>Líquido de frenos</td>
+            <td>Nivel y color (debe ser transparente)</td>
+            <td>Cada revisión</td>
+          </tr>
+          <tr>
+            <td>Latiguillos</td>
+            <td>Grietas o fugas</td>
+            <td>Anualmente</td>
+          </tr>
+        </table>
+        
+        <div class="warning-box">
+          <p><strong>Importante:</strong> El líquido de frenos es higroscópico (absorbe humedad), lo que reduce su punto de ebullición. Se recomienda cambiarlo completamente cada 2 años.</p>
+        </div>
+
+        <h3>4. Cambio de aceite y filtros</h3>
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Cambio de aceite de moto" style="max-width: 100%; height: auto; margin: 16px 0; border-radius: 8px;">
+        
+        <p>El aceite es la sangre de tu motor. Un cambio regular garantiza la lubricación adecuada y prolonga la vida del motor.</p>
+        
+        <p><strong>Frecuencia de cambio:</strong></p>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li>Aceite mineral: cada 3,000-4,000 km</li>
+          <li>Aceite semisintético: cada 5,000-6,000 km</li>
+          <li>Aceite sintético: cada 6,000-8,000 km</li>
+          <li>Consultar siempre las especificaciones del fabricante</li>
+        </ul>
+        
+        <p><strong>Filtros:</strong></p>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li><strong>Filtro de aceite:</strong> Cambiar siempre junto con el aceite</li>
+          <li><strong>Filtro de aire:</strong> Limpiar (si es lavable) o cambiar cada 10,000-12,000 km</li>
+          <li><strong>Filtro de combustible:</strong> Cambiar según recomendación del fabricante (normalmente 20,000 km)</li>
+        </ul>
+
+        <h3>5. Neumáticos: presión y desgaste</h3>
+        <p>Los neumáticos son tu único contacto con la carretera. Su mantenimiento es vital para la seguridad.</p>
+        
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li><strong>Presión:</strong> Revisar semanalmente en frío. Usar los valores recomendados por el fabricante</li>
+          <li><strong>Desgaste:</strong> Comprobar los testigos de desgaste (TWI). Profundidad mínima legal: 1mm en toda la superficie</li>
+          <li><strong>Estado general:</strong> Inspeccionar regularmente en busca de cortes, grietas, deformaciones o objetos clavados</li>
+          <li><strong>Edad:</strong> Aunque tengan dibujo, los neumáticos deben reemplazarse después de 5 años (consulta la fecha de fabricación)</li>
+        </ul>
+        
+        <div class="tip-box">
+          <p><strong>Consejo profesional:</strong> Para un desgaste uniforme, mantén la presión correcta y evita aceleraciones y frenadas bruscas. Rotar los neumáticos (si son iguales delante y detrás) puede ayudar a equilibrar el desgaste.</p>
+        </div>
+
+        <h3>6. Sistema eléctrico y batería</h3>
+        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Batería de motocicleta" style="max-width: 100%; height: auto; margin: 16px 0; border-radius: 8px;">
+        
+        <p>El sistema eléctrico es fundamental para el funcionamiento de tu moto. Presta atención a:</p>
+        
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li><strong>Batería:</strong> Mantener los terminales limpios y apretados. Comprobar el nivel de electrolitos (si no es sellada). Cargar completamente si la moto va a estar parada mucho tiempo</li>
+          <li><strong>Luces:</strong> Comprobar regularmente funcionamiento de todas las luces</li>
+          <li><strong>Fusibles:</strong> Localizar la caja de fusibles y llevar repuestos</li>
+          <li><strong>Alternador:</strong> Prestar atención a posibles fallos en la carga (luces que se atenúan o batería que se descarga)</li>
+        </ul>
+
+        <h3>7. Preguntas frecuentes sobre mantenimiento</h3>
+        
+        <div class="faq-item">
+          <div class="faq-question">¿Cada cuánto tiempo debo hacer una revisión completa de mi moto? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">
+            <p>Además de las revisiones diarias, se recomienda una revisión completa cada 5,000-6,000 km o al menos una vez al año, aunque no se alcance ese kilometraje. Las motos más antiguas o aquellas que se usan en condiciones adversas pueden requerir revisiones más frecuentes.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">¿Puedo usar cualquier tipo de aceite en mi moto? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">
+            <p>No. Es crucial usar el tipo de aceite especificado por el fabricante, especialmente en motos con embrague bañado en aceite donde se requieren aceites específicos para moto (normalmente con especificación JASO MA o MA2). Usar el aceite incorrecto puede causar problemas de embrague y reducir la vida del motor.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">¿Qué herramientas básicas necesito para el mantenimiento de mi moto? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">
+            <p>Un kit básico debería incluir: llaves allen y de vaso de medidas comunes, destornilladores planos y de estrella, alicates, llave de cadena, manómetro para neumáticos, bomba de aire o compresor pequeño, y un caballete o soporte para la moto. Consulta el manual de tu moto para conocer las medidas específicas que necesitarás.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">¿Es necesario lavar la moto con frecuencia? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">
+            <p>Sí, especialmente después de circular con sal en la carretera (invierno) o por caminos de tierra. La suciedad acumulada puede ocultar fugas o deteriorar componentes. Usa productos específicos para motos y evita dirigir el agua a presión directamente a los retenes, bearings y componentes eléctricos.</p>
+          </div>
+        </div>
+
+        <div style="background: #f0f8ff; padding: 20px; border-radius: 8px; margin: 30px 0; text-align: center;">
+          <h3 style="color: #1a1a1a; border: none;">¿Necesitas herramientas o productos de mantenimiento?</h3>
+          <p>Visita nuestras tiendas Moto Rat para encontrar todo lo necesario para el cuidado de tu moto.</p>
+          <a href="productos.html" style="display: inline-block; background: #ff6b00; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-top: 10px; font-weight: bold;">Ver productos de mantenimiento</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Moto Rat</h3>
+          <p>Agitándolo todo desde 1971. Productos y accesorios para motociclistas apasionados.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="marcas.html">Marcas</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terminos.html">Términos y condiciones</a></li>
+            <li><a href="privacidad.html">Política de privacidad</a></li>
+            <li><a href="cookies.html">Política de cookies</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/16tjynrNsG/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/h9u47uw7?igsh=anpyMWNwN3Jhc3hj" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">Derechos Reservados a Las ratas del 12-5 — &copy; <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    // Script para el menú hamburguesa
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      const menu = document.getElementById('main-menu');
+      menu.classList.toggle('show');
+    });
+    
+    // Script para las preguntas frecuentes
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        answer.classList.toggle('active');
+        
+        const icon = question.querySelector('i');
+        if (answer.classList.contains('active')) {
+          icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+        } else {
+          icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+        }
+      });
+    });
+    
+    // Año actual para el copyright
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Cambio de color aleatorio para el logo
+    setInterval(function() {
+      const colors = ['#e63946', '#1d3557', '#457b9d', '#a8dadc', '#f1faee', '#e9c46a'];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.querySelector('.brand').style.color = randomColor;
+    }, 3000);
+  </script>
+</body>
+</html>
