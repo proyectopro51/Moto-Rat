@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Yamaha YZ125 - Moto Rat</title>
+  <meta name="description" content="Yamaha YZ125 de Motocross en Moto Rat - Potencia y ligereza para la pista">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+  <style>
+    :root {
+      --primary: #e63946;
+      --secondary: #1d3557;
+      --accent: #f4a261;
+      --light: #f1faee;
+      --dark: #1d3557;
+      --muted: #6c757d;
+      --yamaha-blue: #003399;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Header y navegación */
+    header {
+      background-color: var(--secondary);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav li {
+      margin-left: 1.5rem;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    
+    nav a i {
+      margin-right: 0.5rem;
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Estilos para la sección de productos */
+    .section {
+      padding: 3rem 0;
+    }
+    
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .section h2 i {
+      margin-right: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .muted {
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    
+    .hero {
+      height: 500px;
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      position: relative;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1589985270826-4b7fe135a9c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+    
+    .hero-left {
+      background: rgba(0,0,0,0.7);
+      padding: 1.5rem;
+      border-radius: 8px;
+      color: white;
+      max-width: 600px;
+    }
+    
+    .logo-big {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    
+    .tag {
+      font-size: 1.2rem;
+    }
+    
+    .product-detail-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .product-gallery {
+      position: relative;
+    }
+    
+    .main-image {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .thumbnail-container {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .thumbnail {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    
+    .thumbnail:hover, .thumbnail.active {
+      opacity: 1;
+    }
+    
+    .product-info {
+      padding: 1rem 0;
+    }
+    
+    .product-badge {
+      background-color: var(--primary);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    
+    .product-title {
+      font-size: 2.2rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .original-price {
+      color: var(--muted);
+      text-decoration: line-through;
+      font-size: 1.4rem;
+      margin-right: 0.5rem;
+    }
+    
+    .product-description {
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+    }
+    
+    .product-actions {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: #c1121f;
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background-color: #14213d;
+    }
+    
+    .btn i {
+      margin-right: 0.5rem;
+    }
+    
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    
+    .specs-table th, .specs-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .specs-table th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+    
+    .specs-table tr:hover {
+      background-color: #f8f9fa;
+    }
+    
+    /* Tabs */
+    .tabs {
+      margin: 2rem 0;
+    }
+    
+    .tab-headers {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 1rem;
+    }
+    
+    .tab-header {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 3px solid transparent;
+    }
+    
+    .tab-header.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 1rem 0;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+    }
+    
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Media queries para responsividad */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--secondary);
+        padding: 1rem;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      nav li {
+        margin: 0.5rem 0;
+      }
+      
+      .product-detail-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-actions {
+        flex-direction: column;
+      }
+      
+      .hero {
+        height: 400px;
+      }
+      
+      .logo-big {
+        font-size: 2.5rem;
+      }
+      
+      .tab-headers {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">Moto Rat</div>
+      <button class="menu-toggle" aria-label="Toggle menu" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="main-menu">
+          <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+          <li><a href="productos.html"><i class="fas fa-motorcycle"></i> PRODUCTOS</a></li>
+          <li><a href="marcas.html"><i class="fas fa-tags"></i> MARCAS</a></li>
+          <li><a href="blog.html"><i class="fas fa-newspaper"></i> BLOG</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> CONTÁCTANOS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-left">
+        <div class="logo-big">Yamaha YZ125</div>
+        <div class="tag">Ligera, ágil y con la potencia de un dos tiempos</div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="product-detail-container">
+        <div class="product-gallery">
+          <img src="https://images.unsplash.com/photo-1589985270826-4b7fe135a9c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Yamaha YZ125 de Motocross" class="main-image" id="mainImage">
+          
+          <div class="thumbnail-container">
+            <img src="https://images.unsplash.com/photo-1589985270826-4b7fe135a9c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Yamaha YZ125 - Vista lateral" class="thumbnail active" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1589985270824-112d5d691c97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Yamaha YZ125 - Salto" class="thumbnail" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Yamaha YZ125 - Detalle motor" class="thumbnail" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1624302244418-35614c6d747d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Yamaha YZ125 - Conductor" class="thumbnail" onclick="changeImage(this)">
+          </div>
+        </div>
+        
+        <div class="product-info">
+          <span class="product-badge">Oferta</span>
+          <h1 class="product-title">Yamaha YZ125 de Motocross</h1>
+          <div class="product-price">
+            <span class="original-price">$8,499.00</span> $8,399.00
+          </div>
+          
+          <p class="product-description">
+            La Yamaha YZ125 es una motocicleta de motocross de dos tiempos que ha sido un pilar en el mundo del motocross durante décadas. 
+            Con un motor de 125cc, esta moto ofrece una potencia impresionante y una agilidad excepcional en pistas de tierra. 
+            Es la elección perfecta para pilotos que buscan una moto competitiva y divertida.
+          </p>
+          
+          <div class="product-actions">
+            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar Ahora</button>
+            <button class="btn btn-secondary"><i class="fas fa-credit-card"></i> Solicitar Financiación</button>
+          </div>
+          
+          <table class="specs-table">
+            <tr>
+              <th>Especificación</th>
+              <th>Detalle</th>
+            </tr>
+            <tr>
+              <td>Motor</td>
+              <td>2-tiempos, 125 cc, refrigeración líquida</td>
+            </tr>
+            <tr>
+              <td>Potencia</td>
+              <td>34 CV @ 11,500 rpm</td>
+            </tr>
+            <tr>
+              <td>Transmisión</td>
+              <td>6 velocidades</td>
+            </tr>
+            <tr>
+              <td>Arranque</td>
+              <td>Patada</td>
+            </tr>
+            <tr>
+              <td>Peso</td>
+              <td>84 kg (sin combustible)</td>
+            </tr>
+            <tr>
+              <td>Suspensión delantera</td>
+              <td>Horquilla invertida KYB, 300mm de recorrido</td>
+            </tr>
+            <tr>
+              <td>Suspensión trasera</td>
+              <td>Monoshock KYB, 317mm de recorrido</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      
+      <div class="tabs">
+        <div class="tab-headers">
+          <div class="tab-header active" onclick="openTab(event, 'description')">Descripción</div>
+          <div class="tab-header" onclick="openTab(event, 'specs')">Especificaciones</div>
+          <div class="tab-header" onclick="openTab(event, 'reviews')">Opiniones</div>
+        </div>
+        
+        <div id="description" class="tab-content active">
+          <h3>Yamaha YZ125: La reina del motocross ligero</h3>
+          <p>
+            La YZ125 representa la esencia pura del motocross: ligera, ágil y con una potencia explosiva característica de los motores de dos tiempos. 
+            Esta moto ha sido constantemente actualizada con la tecnología más avanzada para mantener su posición como una de las favoritas en las pistas de todo el mundo.
+          </p>
+          <p>
+            El motor de 125cc de dos tiempos ofrece una entrega de potencia lineal y controlable, ideal tanto para pilotos noveles como experimentados. 
+            Con su chasis de aluminio ligero y suspensión KYB de alta gama, la YZ125 ofrece un manejo preciso y una capacidad de absorción de impactos excepcional.
+          </p>
+          <p>
+            Características destacadas:
+          </p>
+          <ul>
+            <li>Motor de 2 tiempos de 125cc con potencia máxima de 34 CV</li>
+            <li>Chasis de aluminio ligero y resistente</li>
+            <li>Suspensión delantera KYB de botella invertida con sistema de cartucho neumático</li>
+            <li>Suspensión trasera KYB con amortiguador de choque totalmente ajustable</li>
+            <li>Frenos de disco hidráulicos frontales y traseros</li>
+            <li>Transmisión de 6 velocidades con embrague multidisco</li>
+            <li>Diseño ergonómico para máximo control y comodidad</li>
+          </ul>
+        </div>
+        
+        <div id="specs" class="tab-content">
+          <h3>Especificaciones técnicas completas</h3>
+          <table class="specs-table">
+            <tr>
+              <th>Categoría</th>
+              <th>Detalle</th>
+            </tr>
+            <tr>
+              <td>Motor</td>
+              <td>Monocilíndrico, 2 tiempos, refrigeración líquida</td>
+            </tr>
+            <tr>
+              <td>Cilindrada</td>
+              <td>124.9 cc</td>
+            </tr>
+            <tr>
+              <td>Diámetro x Carrera</td>
+              <td>54.0 x 54.5 mm</td>
+            </tr>
+            <tr>
+              <td>Relación de compresión</td>
+              <td>8.9:1 - 10.8:1 (variable YPVS)</td>
+            </tr>
+            <tr>
+              <td>Potencia máxima</td>
+              <td>34 CV (25.0 kW) @ 11,500 rpm</td>
+            </tr>
+            <tr>
+              <td>Encendido</td>
+              <td>CDI electrónico</td>
+            </tr>
+            <tr>
+              <td>Arranque</td>
+              <td>Patada</td>
+            </tr>
+            <tr>
+              <td>Transmisión</td>
+              <td>6 velocidades, constante</td>
+            </tr>
+            <tr>
+              <td>Embrague</td>
+              <td>Multidisco en baño de aceite, cable de acero</td>
+            </tr>
+            <tr>
+              <td>Sistema de alimentación</td>
+              <td>Carburador Keihin PWK38S</td>
+            </tr>
+            <tr>
+              <td>Chasis</td>
+              <td>Doble viga de aluminio, semi-doble cuna</td>
+            </tr>
+            <tr>
+              <td>Suspensión delantera</td>
+              <td>Horquilla invertida KYB, Ø 48 mm, 300 mm recorrido</td>
+            </tr>
+            <tr>
+              <td>Suspensión trasera</td>
+              <td>Brazo oscilante, monocross KYB, 317 mm recorrido</td>
+            </tr>
+            <tr>
+              <td>Frenos delanteros</td>
+              <td>Disco simple Ø 270 mm, pinza hidráulica</td>
+            </tr>
+            <tr>
+              <td>Frenos traseros</td>
+              <td>Disco simple Ø 245 mm, pinza hidráulica</td>
+            </tr>
+            <tr>
+              <td>Neumático delantero</td>
+              <td>80/100-21 51M</td>
+            </tr>
+            <tr>
+              <td>Neumático trasero</td>
+              <td>100/90-19 57M</td>
+            </tr>
+            <tr>
+              <td>Dimensiones (LxAxA)</td>
+              <td>2,175 x 830 x 1,295 mm</td>
+            </tr>
+            <tr>
+              <td>Distancia entre ejes</td>
+              <td>1,475 mm</td>
+            </tr>
+            <tr>
+              <td>Altura del asiento</td>
+              <td>985 mm</td>
+            </tr>
+            <tr>
+              <td>Altura libre del suelo</td>
+              <td>370 mm</td>
+            </tr>
+            <tr>
+              <td>Capacidad depósito</td>
+              <td>8 L</td>
+            </tr>
+            <tr>
+              <td>Peso en seco</td>
+              <td>84 kg</td>
+            </tr>
+          </table>
+        </div>
+        
+        <div id="reviews" class="tab-content">
+          <h3>Opiniones de clientes</h3>
+          <div class="review">
+            <div class="review-header">
+              <strong>Miguel Ángel T.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p>"La YZ125 es simplemente increíble. La potencia del motor de dos tiempos es adictiva y el manejo es ligero y preciso. Perfecta para pistas técnicas."</p>
+          </div>
+          
+          <div class="review">
+            <div class="review-header">
+              <strong>Laura P.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+            <p>"Empecé en el motocross con esta moto y no puedo estar más contenta. Es lo suficientemente manejable para aprender pero con la potencia necesaria para mejorar."</p>
+          </div>
+          
+          <div class="review">
+            <div class="review-header">
+              <strong>Carlos J.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p>"He tenido varias motos de cross, pero la YZ125 es especial. El equilibrio entre peso, potencia y manejo es perfecto. Yamaha ha acertado completamente con esta máquina."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2><i class="fas fa-credit-card"></i> Financiamiento Disponible</h2>
+      <p class="muted">Aprovecha nuestras Flexi Cuotas y lleva tu Yamaha YZ125 hoy mismo.</p>
+      <a href="contacto.html" class="btn btn-primary">Solicitar Crédito</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Moto Rat</h3>
+          <p>Agitándolo todo desde 1971. Productos y accesorios para motociclistas apasionados.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="marcas.html">Marcas</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terminos.html">Términos y condiciones</a></li>
+            <li><a href="privacidad.html">Política de privacidad</a></li>
+            <li><a href="cookies.html">Política de cookies</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/16tjynrNsG/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/h9u47uw7?igsh=anpyMWNwN3Jhc3hj" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">Derechos Reservados a Las ratas del 12-5 — &copy; <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript para el menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const mainMenu = document.getElementById('main-menu');
+      
+      // Añadir año actual al copyright
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Alternar menú al hacer clic en el botón de hamburguesa
+      menuToggle.addEventListener('click', function() {
+        mainMenu.classList.toggle('show');
+        
+        // Cambiar icono entre hamburguesa y X
+        const icon = menuToggle.querySelector('i');
+        if (mainMenu.classList.contains('show')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Cerrar menú al hacer clic en un enlace (útil en móviles)
+      const menuLinks = document.querySelectorAll('#main-menu a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mainMenu.classList.remove('show');
+          menuToggle.querySelector('i').classList.remove('fa-times');
+          menuToggle.querySelector('i').classList.add('fa-bars');
+        });
+      });
+    });
+
+    // Cambiar imagen principal al hacer clic en miniatura
+    function changeImage(thumbnail) {
+      document.getElementById('mainImage').src = thumbnail.src.replace('200', '1200');
+      
+      // Remover clase active de todas las miniaturas
+      document.querySelectorAll('.thumbnail').forEach(function(thumb) {
+        thumb.classList.remove('active');
+      });
+      
+      // Agregar clase active a la miniatura clickeada
+      thumbnail.classList.add('active');
+    }
+    
+    // Funcionalidad de pestañas
+    function openTab(evt, tabName) {
+      // Ocultar todos los contenidos de pestañas
+      document.querySelectorAll('.tab-content').forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+      
+      // Remover clase active de todos los encabezados de pestañas
+      document.querySelectorAll('.tab-header').forEach(function(header) {
+        header.classList.remove('active');
+      });
+      
+      // Mostrar la pestaña actual y agregar clase active al botón
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
