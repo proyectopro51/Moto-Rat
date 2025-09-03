@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kawasaki Ninja H2R - Moto Rat</title>
+  <meta name="description" content="Kawasaki Ninja H2R en Moto Rat - La moto de producción más extrema del mundo">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+  <style>
+    :root {
+      --primary: #e63946;
+      --secondary: #006cb4;
+      --accent: #6cb52b;
+      --light: #f1faee;
+      --dark: #1d3557;
+      --muted: #6c757d;
+      --kawasaki-green: #6cb52b;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Header y navegación */
+    header {
+      background-color: var(--secondary);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav li {
+      margin-left: 1.5rem;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    
+    nav a i {
+      margin-right: 0.5rem;
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Estilos para la sección de productos */
+    .section {
+      padding: 3rem 0;
+    }
+    
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .section h2 i {
+      margin-right: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .muted {
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    
+    .hero {
+      height: 500px;
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      position: relative;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1601579532717-5de56d1c7c4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+    
+    .hero-left {
+      background: rgba(0,0,0,0.7);
+      padding: 1.5rem;
+      border-radius: 8px;
+      color: white;
+      max-width: 600px;
+    }
+    
+    .logo-big {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--kawasaki-green);
+    }
+    
+    .tag {
+      font-size: 1.2rem;
+    }
+    
+    .product-detail-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .product-gallery {
+      position: relative;
+    }
+    
+    .main-image {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .thumbnail-container {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .thumbnail {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    
+    .thumbnail:hover, .thumbnail.active {
+      opacity: 1;
+    }
+    
+    .product-info {
+      padding: 1rem 0;
+    }
+    
+    .product-badge {
+      background-color: var(--primary);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    
+    .product-title {
+      font-size: 2.2rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .product-description {
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+    }
+    
+    .product-actions {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: #c1121f;
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background-color: #004d80;
+    }
+    
+    .btn i {
+      margin-right: 0.5rem;
+    }
+    
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    
+    .specs-table th, .specs-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .specs-table th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+    
+    .specs-table tr:hover {
+      background-color: #f8f9fa;
+    }
+    
+    /* Tabs */
+    .tabs {
+      margin: 2rem 0;
+    }
+    
+    .tab-headers {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 1rem;
+    }
+    
+    .tab-header {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 3px solid transparent;
+    }
+    
+    .tab-header.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 1rem 0;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+    }
+    
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Media queries para responsividad */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--secondary);
+        padding: 1rem;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      nav li {
+        margin: 0.5rem 0;
+      }
+      
+      .product-detail-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-actions {
+        flex-direction: column;
+      }
+      
+      .hero {
+        height: 400px;
+      }
+      
+      .logo-big {
+        font-size: 2.5rem;
+      }
+      
+      .tab-headers {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">Moto Rat</div>
+      <button class="menu-toggle" aria-label="Toggle menu" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="main-menu">
+          <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+          <li><a href="productos.html"><i class="fas fa-motorcycle"></i> PRODUCTOS</a></li>
+          <li><a href="marcas.html"><i class="fas fa-tags"></i> MARCAS</a></li>
+          <li><a href="blog.html"><i class="fas fa-newspaper"></i> BLOG</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> CONTÁCTANOS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-left">
+        <div class="logo-big">Kawasaki Ninja H2R</div>
+        <div class="tag">La moto de producción más extrema del mundo</div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="product-detail-container">
+        <div class="product-gallery">
+          <img src="https://images.unsplash.com/photo-1601579532717-5de56d1c7c4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Kawasaki Ninja H2R" class="main-image" id="mainImage">
+          
+          <div class="thumbnail-container">
+            <img src="https://images.unsplash.com/photo-1601579532717-5de56d1c7c4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Kawasaki Ninja H2R - Vista frontal" class="thumbnail active" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1601579532863-4d8e1928e8d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Kawasaki Ninja H2R - Vista lateral" class="thumbnail" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1601579532863-4d8e1928e8d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Kawasaki Ninja H2R - Detalle motor" class="thumbnail" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1601579532863-4d8e1928e8d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Kawasaki Ninja H2R - Detalle" class="thumbnail" onclick="changeImage(this)">
+          </div>
+        </div>
+        
+        <div class="product-info">
+          <span class="product-badge">Edición Limitada</span>
+          <h1 class="product-title">Kawasaki Ninja H2R</h1>
+          <div class="product-price">$55,000.00</div>
+          
+          <p class="product-description">
+            La Kawasaki Ninja H2R es la motocicleta de producción más extrema jamás creada. Con un motor sobrealimentado que genera más de 300 caballos de fuerza, 
+            está diseñada exclusivamente para uso en pista. Su tecnología aeronáutica y componentes de carbono la convierten en una obra maestra de ingeniería.
+          </p>
+          
+          <div class="product-actions">
+            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Reservar Ahora</button>
+            <button class="btn btn-secondary"><i class="fas fa-credit-card"></i> Solicitar Información</button>
+          </div>
+          
+          <table class="specs-table">
+            <tr>
+              <th>Especificación</th>
+              <th>Detalle</th>
+            </tr>
+            <tr>
+              <td>Motor</td>
+              <td>4 cilindros en línea, 998 cc, sobrealimentado</td>
+            </tr>
+            <tr>
+              <td>Potencia</td>
+              <td>310 CV @ 14,000 rpm (con ram air)</td>
+            </tr>
+            <tr>
+              <td>Par máximo</td>
+              <td>165 Nm @ 12,500 rpm</td>
+            </tr>
+            <tr>
+              <td>Transmisión</td>
+              <td>6 velocidades, transmisión por cadena</td>
+            </tr>
+            <tr>
+              <td>Sobrealimentación</td>
+              <td>Compresor centrífugo de 6 palas</td>
+            </tr>
+            <tr>
+              <td>Chasis</td>
+              <td>Trepado de acero</td>
+            </tr>
+            <tr>
+              <td>Peso</td>
+              <td>216 kg</td>
+            </tr>
+            <tr>
+              <td>Velocidad máxima</td>
+              <td>>400 km/h (estimada)</td>
+            </tr>
+            <tr>
+              <td>Suspensión delantera</td>
+              <td>Horquilla invertida Öhlins TTX36</td>
+            </tr>
+            <tr>
+              <td>Suspensión trasera</td>
+              <td>Amortiguador Öhlins TTX36</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      
+      <div class="tabs">
+        <div class="tab-headers">
+          <div class="tab-header active" onclick="openTab(event, 'description')">Descripción</div>
+          <div class="tab-header" onclick="openTab(event, 'specs')">Especificaciones</div>
+          <div class="tab-header" onclick="openTab(event, 'reviews')">Opiniones</div>
+        </div>
+        
+        <div id="description" class="tab-content active">
+          <h3>Kawasaki Ninja H2R: La cúspide de la ingeniería motociclística</h3>
+          <p>
+            La Kawasaki Ninja H2R no es simplemente una motocicleta; es una declaración de intenciones. Desarrollada utilizando tecnología aeroespacial 
+            y con la colaboración de múltiples divisiones de Kawasaki Heavy Industries, la H2R representa el pináculo de la tecnología de motocicletas.
+          </p>
+          <p>
+            Su motor sobrealimentado mediante un compresor centrífugo de 6 palas genera una potencia abrumadora, mientras que su chasis y componentes 
+            de fibra de carbono están diseñados para manejar las fuerzas extremas que genera. Es importante destacar que la H2R está homologada 
+            exclusivamente para uso en circuito y no es apta para circular por carretera.
+          </p>
+          <p>
+            Características destacadas:
+          </p>
+          <ul>
+            <li>Motor de 4 cilindros en línea sobrealimentado con compresor centrífugo</li>
+            <li>Potencia de 310 caballos con el sistema Ram Air</li>
+            <li>Chasis de acero trepado diseñado para alta rigidez torsional</li>
+            <li>Suspensión Öhlins TTX36 completamente ajustable</li>
+            <li>Frenos delanteros duales Brembo Stylema con discos de 330mm</li>
+            <li>Carrocería completa en fibra de carbono</li>
+            <li>Alas aerodinámicas para mayor estabilidad a altas velocidades</li>
+            <li>Sistema de gestión de motor con múltiples modos de potencia</li>
+          </ul>
+          <p>
+            La experiencia de pilotar una H2R es comparable a conducir un avión de combate en tierra firme. La entrega de potencia es brutal e inmediata, 
+            con una aceleración que supera a la mayoría de los superdeportivos. Es una moto diseñada para romper récords y establecer nuevos estándares 
+            en el mundo de las motocicletas de alto rendimiento.
+          </p>
+        </div>
+        
+        <div id="specs" class="tab-content">
+          <h3>Especificaciones técnicas completas</h3>
+          <table class="specs-table">
+            <tr>
+              <th>Categoría</th>
+              <th>Detalle</th>
+            </tr>
+            <tr>
+              <td>Motor</td>
+              <td>4 tiempos, 4 cilindros en línea, DOHC, 16 válvulas, sobrealimentado</td>
+            </tr>
+            <tr>
+              <td>Cilindrada</td>
+              <td>998 cc</td>
+            </tr>
+            <tr>
+              <td>Diámetro x Carrera</td>
+              <td>76.0 x 55.0 mm</td>
+            </tr>
+            <tr>
+              <td>Relación de compresión</td>
+              <td>8.3:1</td>
+            </tr>
+            <tr>
+              <td>Potencia máxima</td>
+              <td>310 CV (228 kW) @ 14,000 rpm (con Ram Air)</td>
+            </tr>
+            <tr>
+              <td>Par máximo</td>
+              <td>165 Nm @ 12,500 rpm</td>
+            </tr>
+            <tr>
+              <td>Sistema de alimentación</td>
+              <td>Inyección electrónica con compresor centrífugo</td>
+            </tr>
+            <tr>
+              <td>Encendido</td>
+              <td>Digital TCBI con avance electrónico</td>
+            </tr>
+            <tr>
+              <td>Transmisión</td>
+              <td>6 velocidades, transmisión por cadena</td>
+            </tr>
+            <tr>
+              <td>Embrague</td>
+              <td>Multidisco en baño de aceite, antirrebote</td>
+            </tr>
+            <tr>
+              <td>Chasis</td>
+              <td>Trepado de acero, tipo perimetral</td>
+            </tr>
+            <tr>
+              <td>Suspensión delantera</td>
+              <td>Horquilla invertida Öhlins TTX36 de 43 mm, completamente ajustable</td>
+            </tr>
+            <tr>
+              <td>Recorrido susp. delantera</td>
+              <td>120 mm</td>
+            </tr>
+            <tr>
+              <td>Suspensión trasera</td>
+              <td>Brazo oscilante con amortiguador Öhlins TTX36, completamente ajustable</td>
+            </tr>
+            <tr>
+              <td>Recorrido susp. trasera</td>
+              <td>135 mm</td>
+            </tr>
+            <tr>
+              <td>Frenos delanteros</td>
+              <td>Doble disco de 330 mm, pinzas radiales Brembo Stylema de 4 pistones</td>
+            </tr>
+            <tr>
+              <td>Frenos traseros</td>
+              <td>Disco simple de 250 mm, pinza de 2 pistones</td>
+            </tr>
+            <tr>
+              <td>Neumático delantero</td>
+              <td>120/600 R17 58W</td>
+            </tr>
+            <tr>
+              <td>Neumático trasero</td>
+              <td>190/650 R17 69W</td>
+            </tr>
+            <tr>
+              <td>Dimensiones (LxAxA)</td>
+              <td>2,070 x 770 x 1,165 mm</td>
+            </tr>
+            <tr>
+              <td>Distancia entre ejes</td>
+              <td>1,450 mm</td>
+            </tr>
+            <tr>
+              <td>Altura del asiento</td>
+              <td>830 mm</td>
+            </tr>
+            <tr>
+              <td>Altura libre del suelo</td>
+              <td>130 mm</td>
+            </tr>
+            <tr>
+              <td>Capacidad depósito</td>
+              <td>17 L</td>
+            </tr>
+            <tr>
+              <td>Peso en orden de marcha</td>
+              <td>216 kg</td>
+            </tr>
+          </table>
+        </div>
+        
+        <div id="reviews" class="tab-content">
+          <h3>Opiniones de expertos</h3>
+          <div class="review">
+            <div class="review-header">
+              <strong>Moto Journal</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p>"La Kawasaki Ninja H2R redefine lo que es posible en una motocicleta de producción. La entrega de potencia es simplemente alucinante, con una aceleración que te deja sin aliento. Es una obra maestra de ingeniería que establece un nuevo estándar para todas las superdeportivas."</p>
+          </div>
+          
+          <div class="review">
+            <div class="review-header">
+              <strong>Superbike Magazine</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+            <p>"Pilotar la H2R es una experiencia que pocos podrán vivir. No es una moto para todos, requiere un nivel de habilidad extremo y circuitos adecuados para explotar su potencial. La frenada es impresionante, y la estabilidad a altas velocidades es notable gracias a su aerodinámica activa."</p>
+          </div>
+          
+          <div class="review">
+            <div class="review-header">
+              <strong>Track Riders Association</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p>"La H2R no es solo la moto más potente que hemos probado, sino también una de las mejor terminadas. Los materiales son excepcionales, con un amplio uso de fibra de carbono y componentes de primera calidad. Es una moto que sientes especial desde el momento en que la ves, y que te sobrecoge cuando la pones en marcha."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2><i class="fas fa-credit-card"></i> Financiamiento Exclusivo</h2>
+      <p class="muted">Programas especiales de financiamiento para clientes selectos.</p>
+      <a href="contacto.html" class="btn btn-primary">Solicitar Información</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Moto Rat</h3>
+          <p>Agitándolo todo desde 1971. Productos y accesorios para motociclistas apasionados.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="marcas.html">Marcas</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terminos.html">Términos y condiciones</a></li>
+            <li><a href="privacidad.html">Política de privacidad</a></li>
+            <li><a href="cookies.html">Política de cookies</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/16tjynrNsG/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/h9u47uw7?igsh=anpyMWNwN3Jhc3hj" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">Derechos Reservados a Las ratas del 12-5 — &copy; <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript para el menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const mainMenu = document.getElementById('main-menu');
+      
+      // Añadir año actual al copyright
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Alternar menú al hacer clic en el botón de hamburguesa
+      menuToggle.addEventListener('click', function() {
+        mainMenu.classList.toggle('show');
+        
+        // Cambiar icono entre hamburguesa y X
+        const icon = menuToggle.querySelector('i');
+        if (mainMenu.classList.contains('show')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Cerrar menú al hacer clic en un enlace (útil en móviles)
+      const menuLinks = document.querySelectorAll('#main-menu a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mainMenu.classList.remove('show');
+          menuToggle.querySelector('i').classList.remove('fa-times');
+          menuToggle.querySelector('i').classList.add('fa-bars');
+        });
+      });
+    });
+
+    // Cambiar imagen principal al hacer clic en miniatura
+    function changeImage(thumbnail) {
+      document.getElementById('mainImage').src = thumbnail.src.replace('200', '1200');
+      
+      // Remover clase active de todas las miniaturas
+      document.querySelectorAll('.thumbnail').forEach(function(thumb) {
+        thumb.classList.remove('active');
+      });
+      
+      // Agregar clase active a la miniatura clickeada
+      thumbnail.classList.add('active');
+    }
+    
+    // Funcionalidad de pestañas
+    function openTab(evt, tabName) {
+      // Ocultar todos los contenidos de pestañas
+      document.querySelectorAll('.tab-content').forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+      
+      // Remover clase active de todos los encabezados de pestañas
+      document.querySelectorAll('.tab-header').forEach(function(header) {
+        header.classList.remove('active');
+      });
+      
+      // Mostrar la pestaña actual y agregar clase active al botón
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
