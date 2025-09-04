@@ -508,68 +508,143 @@
         </div>
       </div>
       
-      <div class="tabs">
-        <div class="tab-headers">
-          <div class="tab-header active" onclick="openTab(event, 'description')">Descripción</div>
-          <div class="tab-header" onclick="openTab(event, 'specs')">Especificaciones</div>
-          <div class="tab-header" onclick="openTab(event, 'reviews')">Opiniones</div>
+  <div class="product-actions">
+                    <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar Ahora</button>
+                    <button class="btn btn-secondary"><i class="fas fa-credit-card"></i> Solicitar Financiación</button>
+                </div>
+                
+                <table class="specs-table">
+                    <tr>
+                        <th>Especificación</th>
+                        <th>Detalle</th>
+                    </tr>
+                    <tr>
+                        <td>Motor</td>
+                        <td>V4, 90°, 1103 cc</td>
+                    </tr>
+                    <tr>
+                        <td>Potencia</td>
+                        <td>214 CV @ 13,000 rpm</td>
+                    </tr>
+                    <tr>
+                        <td>Par máximo</td>
+                        <td>124 Nm @ 10,000 rpm</td>
+                    </tr>
+                    <tr>
+                        <td>Transmisión</td>
+                        <td>6 velocidades</td>
+                    </tr>
+                    <tr>
+                        <td>Peso</td>
+                        <td>175 kg (en seco)</td>
+                    </tr>
+                    <tr>
+                        <td>Velocidad máxima</td>
+                        <td>Más de 300 km/h</td>
+                    </tr>
+                </table>
+            </div>
         </div>
         
-        <div id="description" class="tab-content active">
-          <h3>Ducati Panigale V4: La evolución de la superdeportiva</h3>
-          <p>
-            La Panigale V4 está disponible en tres versiones: Panigale V4, Panigale V4 S y Panigale V4 Speciale. 
-            Esta motocicleta incorpora la tecnología más avanzada de Ducati, incluyendo control de tracción, 
-            control de wheelie, control de lanzamiento y cambio rápido electrónico up/down.
-          </p>
-          <p>
-            El motor Desmosedici Stradale de 1103 cc deriva directamente de la experiencia de Ducati en MotoGP 
-            y ofrece un sonido y rendimiento excepcionales. Con un chasis innovador que combina un frontal de 
-            estructura con un bastidor trasero tradicional, la Panigale V4 ofrece una precisión y agilidad nunca vistas.
-          </p>
-          <p>
-            La electrónica de a bordo incluye múltiples modos de conducción (Race, Sport y Street), 
-            control de tracción EVO, control de wheelie EVO, control de freno de motor EVO, 
-            y un quickshift up/down EVO para cambios de marcha ultrarrápidos sin accionar el embrague.
-          </p>
+        <div class="tabs">
+            <div class="tab-headers">
+                <div class="tab-header active" onclick="openTab(event, 'description')">Descripción</div>
+                <div class="tab-header" onclick="openTab(event, 'specs')">Especificaciones</div>
+                <div class="tab-header" onclick="openTab(event, 'reviews')">Opiniones</div>
+            </div>
+            
+            <div id="description" class="tab-content active">
+                <h3>Ducati Panigale V4: La evolución de la superdeportiva</h3>
+                <p>
+                    La Panigale V4 está disponible en tres versiones: Panigale V4, Panigale V4 S y Panigale V4 Speciale. 
+                    Esta motocicleta incorpora la tecnología más avanzada de Ducati, incluyendo control de tracción, 
+                    control de wheelie, control de lanzamiento y cambio rápido electrónico up/down.
+                </p>
+                <p>
+                    El motor Desmosedici Stradale de 1103 cc deriva directamente de la experiencia de Ducati en MotoGP 
+                    y ofrece un sonido y rendimiento excepcionales. Con un chasis innovador que combina un frontal de 
+                    estructura con un bastidor trasero tradicional, la Panigale V4 ofrece una precisión y agilidad nunca vistas.
+                </p>
+            </div>
+            
+            <div id="specs" class="tab-content">
+                <h3>Especificaciones técnicas completas</h3>
+                <table class="specs-table">
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Detalle</th>
+                    </tr>
+                    <tr>
+                        <td>Motor</td>
+                        <td>V4, 90°, 4 tiempos, refrigeración líquida</td>
+                    </tr>
+                    <tr>
+                        <td>Cilindrada</td>
+                        <td>1103 cc</td>
+                    </tr>
+                    <tr>
+                        <td>Diámetro x Carrera</td>
+                        <td>81 x 53.5 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Relación de compresión</td>
+                        <td>14.0:1</td>
+                    </tr>
+                    <tr>
+                        <td>Potencia máxima</td>
+                        <td>214 CV (157.5 kW) @ 13,000 rpm</td>
+                    </tr>
+                    <tr>
+                        <td>Par máximo</td>
+                        <td>124 Nm (91.5 lb-ft) @ 10,000 rpm</td>
+                    </tr>
+                    <tr>
+                        <td>Alimentación</td>
+                        <td>Inyección electrónica, cuerpo del acelerador de 52 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Transmisión</td>
+                        <td>6 velocidades, cadena</td>
+                    </tr>
+                    <tr>
+                        <td>Embrague</td>
+                        <td>Multidisco en baño de aceite, asistido y deslizante</td>
+                    </tr>
+                    <tr>
+                        <td>Chasis</td>
+                        <td>Estructura frontal de aluminio</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div id="reviews" class="tab-content">
+                <h3>Opiniones de clientes</h3>
+                <div class="review">
+                    <div class="review-header">
+                        <strong>Carlos M.</strong>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p>"Increíble máquina. La potencia del motor V4 es abrumadora y el manejo es preciso. ¡La mejor moto que he tenido!"</p>
+                </div>
+                
+                <div class="review">
+                    <div class="review-header">
+                        <strong>Ana L.</strong>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p>"Un diseño espectacular y tecnología de punta. Es caro, pero vale cada centavo. La atención que recibes en la calle es increíble."</p>
+                </div>
+            </div>
         </div>
-        
-        <div id="specs" class="tab-content">
-          <h3>Especificaciones técnicas completas</h3>
-          <table class="specs-table">
-            <tr>
-              <th>Categoría</th>
-              <th>Detalle</th>
-            </tr>
-            <tr>
-              <td>Motor</td>
-              <td>V4, 90°, 4 tiempos, refrigeración líquida</td>
-            </tr>
-            <tr>
-              <td>Cilindrada</td>
-              <td>1103 cc</td>
-            </tr>
-            <tr>
-              <td>Diámetro x Carrera</td>
-              <td>81 x 53.5 mm</td>
-            </tr>
-            <tr>
-              <td>Relación de compresión</td>
-              <td>14.0:1</td>
-            </tr>
-            <tr>
-              <td>Potencia máxima</td>
-              <td>214 CV (157.5 kW) @ 13,000 rpm</td>
-            </tr>
-            <tr>
-              <td>Par máximo</td>
-              <td>124 Nm (91.5 lb-ft) @ 10,000 rpm</td>
-            </tr>
-            <tr>
-              <td>Alimentación</td>
-              <td>Inyección electrónica, cuerpo del acelerador de 52 mm</td>
-            </tr>
-            <tr>
-              <td>Transmisión</td>
-              <td>
-
