@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chaqueta de Cuero Premium - Moto Rat</title>
+  <meta name="description" content="Chaqueta de Cuero Premium en Moto Rat - Elegancia, protección y estilo para el motociclista exigente">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+  <style>
+    :root {
+      --primary: #8b4513;
+      --secondary: #1d3557;
+      --accent: #d4af37;
+      --light: #f8f9fa;
+      --dark: #2c3e50;
+      --muted: #6c757d;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Header y navegación */
+    header {
+      background-color: var(--secondary);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav li {
+      margin-left: 1.5rem;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    
+    nav a i {
+      margin-right: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Estilos para la sección de productos */
+    .section {
+      padding: 3rem 0;
+    }
+    
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .section h2 i {
+      margin-right: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .muted {
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    
+    .hero {
+      height: 500px;
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      position: relative;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+    
+    .hero-left {
+      background: rgba(0,0,0,0.7);
+      padding: 1.5rem;
+      border-radius: 8px;
+      color: white;
+      max-width: 600px;
+    }
+    
+    .logo-big {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    
+    .tag {
+      font-size: 1.2rem;
+    }
+    
+    .product-detail-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .product-gallery {
+      position: relative;
+    }
+    
+    .main-image {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .thumbnail-container {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .thumbnail {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    
+    .thumbnail:hover, .thumbnail.active {
+      opacity: 1;
+    }
+    
+    .product-info {
+      padding: 1rem 0;
+    }
+    
+    .product-badge {
+      background-color: var(--primary);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    
+    .product-title {
+      font-size: 2.2rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .price-old {
+      text-decoration: line-through;
+      color: var(--muted);
+      font-size: 1.4rem;
+      margin-right: 0.5rem;
+    }
+    
+    .product-description {
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+    }
+    
+    .product-actions {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: #6b3409;
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background-color: #14213d;
+    }
+    
+    .btn i {
+      margin-right: 0.5rem;
+    }
+    
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    
+    .specs-table th, .specs-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .specs-table th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+    
+    .specs-table tr:hover {
+      background-color: #f8f9fa;
+    }
+    
+    /* Tabs */
+    .tabs {
+      margin: 2rem 0;
+    }
+    
+    .tab-headers {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 1rem;
+    }
+    
+    .tab-header {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 3px solid transparent;
+    }
+    
+    .tab-header.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 1rem 0;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    /* Tallas */
+    .sizes {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .size-option {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .size-option:hover {
+      border-color: var(--primary);
+    }
+    
+    .size-option.selected {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    /* Colores */
+    .colors {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+    }
+    
+    .color-option:hover {
+      transform: scale(1.1);
+    }
+    
+    .color-option.selected {
+      border-color: var(--dark);
+    }
+    
+    .color-brown {
+      background-color: #8b4513;
+    }
+    
+    .color-black {
+      background-color: #000;
+    }
+    
+    .color-darkbrown {
+      background-color: #654321;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+    }
+    
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Media queries para responsividad */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--secondary);
+        padding: 1rem;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      nav li {
+        margin: 0.5rem 0;
+      }
+      
+      .product-detail-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-actions {
+        flex-direction: column;
+      }
+      
+      .hero {
+        height: 400px;
+      }
+      
+      .logo-big {
+        font-size: 2.5rem;
+      }
+      
+      .tab-headers {
+        flex-wrap: wrap;
+      }
+      
+      .sizes, .colors {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">Moto Rat</div>
+      <button class="menu-toggle" aria-label="Toggle menu" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="main-menu">
+          <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+          <li><a href="indumentaria.html"><i class="fas fa-tshirt"></i> INDUMENTARIA</a></li>
+          <li><a href="productos.html"><i class="fas fa-motorcycle"></i> PRODUCTOS</a></li>
+          <li><a href="marcas.html"><i class="fas fa-tags"></i> MARCAS</a></li>
+          <li><a href="blog.html"><i class="fas fa-newspaper"></i> BLOG</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> CONTÁCTANOS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-left">
+        <div class="logo-big">Cuero Premium</div>
+        <div class="tag">Elegancia y protección en cada viaje</div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="product-detail-container">
+        <div class="product-gallery">
+          <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Chaqueta de Cuero Premium" class="main-image" id="mainImage">
+          
+          <div class="thumbnail-container">
+            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Chaqueta de Cuero - Vista frontal" class="thumbnail active" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Chaqueta de Cuero - Detalle" class="thumbnail" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Chaqueta de Cuero - En uso" class="thumbnail" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc3f5b37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Chaqueta de Cuero - Vista trasera" class="thumbnail" onclick="changeImage(this)">
+          </div>
+        </div>
+        
+        <div class="product-info">
+          <span class="product-badge">COLECCIÓN EXCLUSIVA</span>
+          <h1 class="product-title">Chaqueta de Cuero Premium</h1>
+          <div class="product-price">
+            <span class="price-old">$499.99</span> $399.99
+          </div>
+          
+          <p class="product-description">
+            Descubre nuestra chaqueta de cuero premium, fabricada con cuero de primera calidad y diseñada 
+            para ofrecer la máxima protección, comodidad y estilo. Perfecta para motociclistas exigentes 
+            que valoran tanto la seguridad como la elegancia atemporal del cuero.
+          </p>
+          
+          <div class="sizes">
+            <div class="size-option" onclick="selectSize(this)">S</div>
+            <div class="size-option selected" onclick="selectSize(this)">M</div>
+            <div class="size-option" onclick="selectSize(this)">L</div>
+            <div class="size-option" onclick="selectSize(this)">XL</div>
+            <div class="size-option" onclick="selectSize(this)">XXL</div>
+          </div>
+          
+          <div class="colors">
+            <div class="color-option color-brown selected" onclick="selectColor(this)" title="Marrón"></div>
+            <div class="color-option color-black" onclick="selectColor(this)" title="Negro"></div>
+            <div class="color-option color-darkbrown" onclick="selectColor(this)" title="Marrón Oscuro"></div>
+          </div>
+          
+          <div class="product-actions">
+            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Añadir al Carrito</button>
+            <button class="btn btn-secondary"><i class="fas fa-heart"></i> Guardar en Favoritos</button>
+          </div>
+          
+          <table class="specs-table">
+            <tr>
+              <th>Característica</th>
+              <th>Detalle</th>
+            </tr>
+            <tr>
+              <td>Material</td>
+              <td>Cuero de vacuno premium de 1.2-1.4 mm</td>
+            </tr>
+            <tr>
+              <td>Protección</td>
+              <td>Protecciones extraíbles en hombros y codos</td>
+            </tr>
+            <tr>
+              <td>Forro</td>
+              <td>Forro interior desmontable de tejido técnico</td>
+            </tr>
+            <tr>
+              <td>Cierre</td>
+              <td>Cremallera metálica de alta resistencia</td>
+            </tr>
+            <tr>
+              <td>Ventilación</td>
+              <td>Rejillas de ventilación ajustables</td>
+            </tr>
+            <tr>
+              <td>Bolsillos</td>
+              <td>4 bolsillos exteriores, 2 interiores</td>
+            </tr>
+            <tr>
+              <td>Certificación</td>
+              <td>CE Nivel 1 en protecciones</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      
+      <div class="tabs">
+        <div class="tab-headers">
+          <div class="tab-header active" onclick="openTab(event, 'description')">Descripción</div>
+          <div class="tab-header" onclick="openTab(event, 'specs')">Especificaciones</div>
+          <div class="tab-header" onclick="openTab(event, 'reviews')">Opiniones</div>
+          <div class="tab-header" onclick="openTab(event, 'sizing')">Guía de Tallas</div>
+        </div>
+        
+        <div id="description" class="tab-content active">
+          <h3>Chaqueta de Cuero Premium: Tradición y Tecnología</h3>
+          <p>
+            Nuestra chaqueta de cuero premium representa la perfecta unión entre la tradición artesanal 
+            del trabajo en cuero y las últimas tecnologías en protección para motociclistas. Cada chaqueta 
+            es meticulosamente fabricada utilizando cuero de vacuno de primera calidad, seleccionado por 
+            su durabilidad, flexibilidad y resistencia al desgaste.
+          </p>
+          <p>
+            El diseño clásico cruiser se combina con elementos modernos como protecciones extraíbles CE 
+            en hombros y codos, ventilación ajustable y un forro interior térmico desmontable que permite 
+            su uso durante todo el año. Los detalles en costuras contrastantes y los acabados metálicos 
+            refuerzan su carácter premium.
+          </p>
+          <p>
+            Características destacadas:
+          </p>
+          <ul>
+            <li>Cuero de vacuno de grano completo de 1.2-1.4 mm de espesor</li>
+            <li>Protecciones extraíbles CE nivel 1 en hombros y codos</li>
+            <li>Forro interior desmontable de tejido técnico transpirable</li>
+            <li>Sistema de ventilación con rejillas ajustables en pecho y espalda</li>
+            <li>Cremalleras metálicas de alta resistencia YKK®</li>
+            <li>Bolsillos internos de seguridad con cierre</li>
+            <li>Ajustes laterales y en puños para personalizar el fit</li>
+            <li>Diseño atemporal que mejora con el paso del tiempo</li>
+          </ul>
+          <p>
+            Esta chaqueta no es solo una prenda de protección, es una inversión en estilo y seguridad 
+            que te acompañará durante muchos años. El cuero de calidad premium se suaviza y adquiere 
+            un característico patina única con el uso, haciendo que cada chaqueta sea exclusiva para su dueño.
+          </p>
+        </div>
+        
+        <div id="specs" class="tab-content">
+          <h3>Especificaciones técnicas completas</h3>
+          <table class="specs-table">
+            <tr>
+              <th>Característica</th>
+              <th>Detalle</th>
+            </tr>
+            <tr>
+              <td>Material exterior</td>
+              <td>Cuero de vacuno de grano completo, 1.2-1.4 mm</td>
+            </tr>
+            <tr>
+              <td>Protecciones</td>
+              <td>Extraíbles CE Nivel 1 en hombros y codos</td>
+            </tr>
+            <tr>
+              <td>Forro interior</td>
+              <td>Desmontable, tejido técnico transpirable (100% poliéster)</td>
+            </tr>
+            <tr>
+              <td>Sistema de ventilación</td>
+              <td>Rejillas ajustables en pecho (x2) y espalda (x2)</td>
+            </tr>
+            <tr>
+              <td>Cierres</td>
+              <td>Cremallera frontal YKK® metálica, cremalleras en bolsillos</td>
+            </tr>
+            <tr>
+              <td>Bolsillos</td>
+              <td>2 bolsillos frontales con solapa, 2 bolsillos laterales, 2 bolsillos internos</td>
+            </tr>
+            <tr>
+              <td>Ajustes</td>
+              <td>Cinturón lateral con hebilla, ajuste de puños con velcro</td>
+            </tr>
+            <tr>
+              <td>Reflectividad</td>
+              <td>Inserciones reflectantes discretas en espalda y laterales</td>
+            </tr>
+            <tr>
+              <td>Tallas disponibles</td>
+              <td>S, M, L, XL, XXL</td>
+            </tr>
+            <tr>
+              <td>Colores</td>
+              <td>Marrón, Negro, Marrón Oscuro</td>
+            </tr>
+            <tr>
+              <td>Peso aproximado</td>
+              <td>2.8 kg (talla M, con protecciones)</td>
+            </tr>
+            <tr>
+              <td>Mantenimiento</td>
+              <td>Tratamiento con crema de cuero específica cada 6 meses</td>
+            </tr>
+            <tr>
+              <td>Garantía</td>
+              <td>2 años contra defectos de fabricación</td>
+            </tr>
+          </table>
+        </div>
+        
+        <div id="reviews" class="tab-content">
+          <h3>Opiniones de clientes</h3>
+          <div class="review">
+            <div class="review-header">
+              <strong>Roberto M.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p>"He tenido varias chaquetas de cuero a lo largo de los años, pero esta es sin duda la mejor. La calidad del cuero es excepcional, las protecciones son cómodas pero efectivas, y el diseño es simplemente atemporal. Invertí en ella hace 3 años y cada día me gusta más cómo envejece el cuero."</p>
+          </div>
+          
+          <div class="review">
+            <div class="review-header">
+              <strong>Elena C.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+            <p>"Compré esta chaqueta para mi esposo y está encantado. La usa tanto para montar en moto como para ocasiones informales. La calidad de las cremalleras y los acabados es notable. El único punto a mejorar sería incluir una funda para guardarla, pero por lo demás, perfecta."</p>
+          </div>
+          
+          <div class="review">
+            <div class="review-header">
+              <strong>Javier L.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            </div>
+            <p>"Excelente chaqueta. La protección es muy buena, me he caído una vez a baja velocidad y la chaqueta aguantó perfectamente sin apenas daños. El forro desmontable es ideal para las diferentes estaciones. Es cara, pero sin duda vale cada céntimo por la calidad y protección que ofrece."</p>
+          </div>
+        </div>
+        
+        <div id="sizing" class="tab-content">
+          <h3>Guía de tallas y medidas</h3>
+          <p>Para asegurar el ajuste perfecto, es fundamental elegir la talla correcta. Sigue estas instrucciones:</p>
+          
+          <h4>Cómo medir tu cuerpo:</h4>
+          <ol>
+            <li>Pecho: Mide alrededor de la parte más ancha de tu pecho, debajo de los brazos</li>
+            <li>Cintura: Mide alrededor de tu cintura natural (donde normalmente llevas el cinturón)</li>
+            <li>Cadera: Mide alrededor de la parte más ancha de tus caderas</li>
+            <li>Longitud de mangas: Mide desde el hombro hasta la muñeca con el brazo ligeramente flexionado</li>
+            <li>Compara tus medidas con la tabla de tallas para encontrar tu talla ideal</li>
+          </ol>
+          
+          <table class="specs-table">
+            <tr>
+              <th>Talla</th>
+              <th>Pecho (cm)</th>
+              <th>Cintura (cm)</th>
+              <th>Cadera (cm)</th>
+              <th>Long. Manga (cm)</th>
+            </tr>
+            <tr>
+              <td>S</td>
+              <td>92-96</td>
+              <td>78-82</td>
+              <td>92-96</td>
+              <td>63</td>
+            </tr>
+            <tr>
+              <td>M</td>
+              <td>96-100</td>
+              <td>82-86</td>
+              <td>96-100</td>
+              <td>64</td>
+            </tr>
+            <tr>
+              <td>L</td>
+              <td>100-104</td>
+              <td>86-90</td>
+              <td>100-104</td>
+              <td>65</td>
+            </tr>
+            <tr>
+              <td>XL</td>
+              <td>104-108</td>
+              <td>90-94</td>
+              <td>104-108</td>
+              <td>66</td>
+            </tr>
+            <tr>
+              <td>XXL</td>
+              <td>108-112</td>
+              <td>94-98</td>
+              <td>108-112</td>
+              <td>67</td>
+            </tr>
+          </table>
+          
+          <h4>Recomendaciones de ajuste:</h4>
+          <p>Una chaqueta de moto debe ajustarse cómodamente pero permitir el movimiento. Debes poder mover los brazos libremente y sentarte en posición de riding sin que la chaqueta suba excesivamente por la espalda. Recuerda que el cuero se adaptará ligeramente a tu cuerpo con el uso.</p>
+          
+          <p>Si normalmente usas una talla concreta en chaquetas casuales, recomendamos elegir la misma talla para esta chaqueta, ya que está diseñada con un fit regular que se adapta a la mayoría de cuerpos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2><i class="fas fa-gift"></i> Oferta Especial</h2>
+      <p class="muted">Por la compra de esta chaqueta, llévate un kit de cuidado de cuero de regalo.</p>
+      <a href="ofertas.html" class="btn btn-primary">Ver Ofertas</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Moto Rat</h3>
+          <p>Agitándolo todo desde 1971. Productos y accesorios para motociclistas apasionados.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="indumentaria.html">Indumentaria</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="marcas.html">Marcas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terminos.html">Términos y condiciones</a></li>
+            <li><a href="privacidad.html">Política de privacidad</a></li>
+            <li><a href="devoluciones.html">Política de devoluciones</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/16tjynrNsG/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/h9u47uw7?igsh=anpyMWNwN3Jhc3hj" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">Derechos Reservados a Las ratas del 12-5 — &copy; <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript para el menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const mainMenu = document.getElementById('main-menu');
+      
+      // Añadir año actual al copyright
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Alternar menú al hacer clic en el botón de hamburguesa
+      menuToggle.addEventListener('click', function() {
+        mainMenu.classList.toggle('show');
+        
+        // Cambiar icono entre hamburguesa y X
+        const icon = menuToggle.querySelector('i');
+        if (mainMenu.classList.contains('show')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Cerrar menú al hacer clic en un enlace (útil en móviles)
+      const menuLinks = document.querySelectorAll('#main-menu a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mainMenu.classList.remove('show');
+          menuToggle.querySelector('i').classList.remove('fa-times');
+          menuToggle.querySelector('i').classList.add('fa-bars');
+        });
+      });
+    });
+
+    // Cambiar imagen principal al hacer clic en miniatura
+    function changeImage(thumbnail) {
+      document.getElementById('mainImage').src = thumbnail.src.replace('200', '1200');
+      
+      // Remover clase active de todas las miniaturas
+      document.querySelectorAll('.thumbnail').forEach(function(thumb) {
+        thumb.classList.remove('active');
+      });
+      
+      // Agregar clase active a la miniatura clickeada
+      thumbnail.classList.add('active');
+    }
+    
+    // Funcionalidad de pestañas
+    function openTab(evt, tabName) {
+      // Ocultar todos los contenidos de pestañas
+      document.querySelectorAll('.tab-content').forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+      
+      // Remover clase active de todos los encabezados de p
