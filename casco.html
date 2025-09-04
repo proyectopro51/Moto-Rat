@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Casco Deportivo MR-X - Moto Rat</title>
+  <meta name="description" content="Casco Deportivo MR-X en Moto Rat - Máxima protección y estilo para el piloto exigente">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+  <style>
+    :root {
+      --primary: #e63946;
+      --secondary: #1d3557;
+      --accent: #f4a261;
+      --light: #f1faee;
+      --dark: #1d3557;
+      --muted: #6c757d;
+      --helmet-red: #e63946;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Header y navegación */
+    header {
+      background-color: var(--secondary);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav li {
+      margin-left: 1.5rem;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    
+    nav a i {
+      margin-right: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Estilos para la sección de productos */
+    .section {
+      padding: 3rem 0;
+    }
+    
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .section h2 i {
+      margin-right: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .muted {
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    
+    .hero {
+      height: 500px;
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      position: relative;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1626863905121-3b0b0f254e1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+    
+    .hero-left {
+      background: rgba(0,0,0,0.7);
+      padding: 1.5rem;
+      border-radius: 8px;
+      color: white;
+      max-width: 600px;
+    }
+    
+    .logo-big {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--helmet-red);
+    }
+    
+    .tag {
+      font-size: 1.2rem;
+    }
+    
+    .product-detail-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .product-gallery {
+      position: relative;
+    }
+    
+    .main-image {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .thumbnail-container {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .thumbnail {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    
+    .thumbnail:hover, .thumbnail.active {
+      opacity: 1;
+    }
+    
+    .product-info {
+      padding: 1rem 0;
+    }
+    
+    .product-badge {
+      background-color: var(--primary);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    
+    .product-title {
+      font-size: 2.2rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .price-old {
+      text-decoration: line-through;
+      color: var(--muted);
+      font-size: 1.4rem;
+      margin-right: 0.5rem;
+    }
+    
+    .product-description {
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+    }
+    
+    .product-actions {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: #c1121f;
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background-color: #14213d;
+    }
+    
+    .btn i {
+      margin-right: 0.5rem;
+    }
+    
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    
+    .specs-table th, .specs-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .specs-table th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+    
+    .specs-table tr:hover {
+      background-color: #f8f9fa;
+    }
+    
+    /* Tabs */
+    .tabs {
+      margin: 2rem 0;
+    }
+    
+    .tab-headers {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 1rem;
+    }
+    
+    .tab-header {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 3px solid transparent;
+    }
+    
+    .tab-header.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 1rem 0;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    /* Tallas */
+    .sizes {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .size-option {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .size-option:hover {
+      border-color: var(--primary);
+    }
+    
+    .size-option.selected {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    /* Colores */
+    .colors {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+    }
+    
+    .color-option:hover {
+      transform: scale(1.1);
+    }
+    
+    .color-option.selected {
+      border-color: var(--dark);
+    }
+    
+    .color-red {
+      background-color: #e63946;
+    }
+    
+    .color-black {
+      background-color: #000;
+    }
+    
+    .color-white {
+      background-color: #fff;
+      border: 1px solid #ddd;
+    }
+    
+    .color-blue {
+      background-color: #1d3557;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+    }
+    
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Media queries para responsividad */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--secondary);
+        padding: 1rem;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      nav li {
+        margin: 0.5rem 0;
+      }
+      
+      .product-detail-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-actions {
+        flex-direction: column;
+      }
+      
+      .hero {
+        height: 400px;
+      }
+      
+      .logo-big {
+        font-size: 2.5rem;
+      }
+      
+      .tab-headers {
+        flex-wrap: wrap;
+      }
+      
+      .sizes, .colors {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">Moto Rat</div>
+      <button class="menu-toggle" aria-label="Toggle menu" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="main-menu">
+          <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+          <li><a href="cascos.html"><i class="fas fa-helmet-safety"></i> CASCOS</a></li>
+          <li><a href="productos.html"><i class="fas fa-motorcycle"></i> PRODUCTOS</a></li>
+          <li><a href="marcas.html"><i class="fas fa-tags"></i> MARCAS</a></li>
+          <li><a href="blog.html"><i class="fas fa-newspaper"></i> BLOG</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> CONTÁCTANOS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-left">
+        <div class="logo-big">Casco MR-X</div>
+        <div class="tag">Protección superior con diseño aerodinámico</div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="product-detail-container">
+        <div class="product-gallery">
+          <img src="https://images.unsplash.com/photo-1626863905121-3b0b0f254e1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Casco Deportivo MR-X" class="main-image" id="mainImage">
+          
+          <div class="thumbnail-container">
+            <img src="https://images.unsplash.com/photo-1626863905121-3b0b0f254e1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Casco MR-X - Vista frontal" class="thumbnail active" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1627886610102-6f2f272f4d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Casco MR-X - Vista lateral" class="thumbnail" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Casco MR-X - Vista trasera" class="thumbnail" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1627886610178-3be6db46f2a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Casco MR-X - Interior" class="thumbnail" onclick="changeImage(this)">
+          </div>
+        </div>
+        
+        <div class="product-info">
+          <span class="product-badge">OFERTA ESPECIAL</span>
+          <h1 class="product-title">Casco Deportivo MR-X</h1>
+          <div class="product-price">
+            <span class="price-old">$299.99</span> $249.99
+          </div>
+          
+          <p class="product-description">
+            El casco deportivo MR-X es la elección perfecta para pilotos que buscan máxima protección, 
+            comodidad y estilo. Diseñado con tecnología avanzada y materiales de primera calidad, 
+            ofrece un rendimiento excepcional en carretera y circuito.
+          </p>
+          
+          <div class="sizes">
+            <div class="size-option selected" onclick="selectSize(this)">S</div>
+            <div class="size-option" onclick="selectSize(this)">M</div>
+            <div class="size-option" onclick="selectSize(this)">L</div>
+            <div class="size-option" onclick="selectSize(this)">XL</div>
+          </div>
+          
+          <div class="colors">
+            <div class="color-option color-red selected" onclick="selectColor(this)" title="Rojo"></div>
+            <div class="color-option color-black" onclick="selectColor(this)" title="Negro"></div>
+            <div class="color-option color-white" onclick="selectColor(this)" title="Blanco"></div>
+            <div class="color-option color-blue" onclick="selectColor(this)" title="Azul"></div>
+          </div>
+          
+          <div class="product-actions">
+            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Añadir al Carrito</button>
+            <button class="btn btn-secondary"><i class="fas fa-heart"></i> Guardar en Favoritos</button>
+          </div>
+          
+          <table class="specs-table">
+            <tr>
+              <th>Especificación</th>
+              <th>Detalle</th>
+            </tr>
+            <tr>
+              <td>Material</td>
+              <td>Fibra de carbono compuesta</td>
+            </tr>
+            <tr>
+              <td>Certificación</td>
+              <td>ECE 22.06, DOT</td>
+            </tr>
+            <tr>
+              <td>Peso</td>
+              <td>1350g (talla M)</td>
+            </tr>
+            <tr>
+              <td>Visiera</td>
+              <td>Pinlock® 100% incluido</td>
+            </tr>
+            <tr>
+              <td>Sistema de ventilación</td>
+              <td>5 entradas, 4 salidas</td>
+            </tr>
+            <tr>
+              <td>Forro interior</td>
+              <td>Desmontable y lavable</td>
+            </tr>
+            <tr>
+              <td>Compatibilidad</td>
+              <td>Comunicadores intercom</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      
+      <div class="tabs">
+        <div class="tab-headers">
+          <div class="tab-header active" onclick="openTab(event, 'description')">Descripción</div>
+          <div class="tab-header" onclick="openTab(event, 'specs')">Especificaciones</div>
+          <div class="tab-header" onclick="openTab(event, 'reviews')">Opiniones</div>
+          <div class="tab-header" onclick="openTab(event, 'sizing')">Guía de Tallas</div>
+        </div>
+        
+        <div id="description" class="tab-content active">
+          <h3>Casco Deportivo MR-X: Tecnología y Seguridad</h3>
+          <p>
+            El MR-X representa la evolución en diseño de cascos deportivos, combinando lo último en tecnología 
+            de seguridad con un diseño aerodinámico agresivo. Su carcasa de fibra de carbono compuesta ofrece 
+            una relación resistencia-peso excepcional, reduciendo la fatiga durante largos recorridos.
+          </p>
+          <p>
+            El sistema de ventilación avanzado con 5 entradas frontales y 4 salidas traseras garantiza un flujo 
+            de aire óptimo, evitando el empañamiento y manteniendo la comodidad en todas las condiciones climáticas. 
+            La visera incluida con sistema Pinlock® 100% asegura una visión clara incluso en condiciones de lluvia 
+            y frío extremo.
+          </p>
+          <p>
+            Características destacadas:
+          </p>
+          <ul>
+            <li>Carcasa de fibra de carbono ultraligera</li>
+            <li>Doble homologación ECE 22.06 y DOT</li>
+            <li>Sistema de ventilación de flujo continuo</li>
+            <li>Visera con tratamiento antiarañazos y sistema Pinlock® incluido</li>
+            <li>Forro interior de tejido técnico antibacteriano y transpirable</li>
+            <li>Cierre de doble anilla de seguridad</li>
+            <li>Preparado para instalación de sistemas de comunicación</li>
+            <li>Diseño aerodinámico con alerón integrado para máxima estabilidad</li>
+          </ul>
+          <p>
+            El casco MR-X no es solo un elemento de protección, es una declaración de estilo y rendimiento. 
+            Su diseño agresivo y su tecnología avanzada lo convierten en la elección perfecta para pilotos 
+            exigentes que valoran tanto la seguridad como el rendimiento.
+          </p>
+        </div>
+        
+        <div id="specs" class="tab-content">
+          <h3>Especificaciones técnicas completas</h3>
+          <table class="specs-table">
+            <tr>
+              <th>Categoría</th>
+              <th>Detalle</th>
+            </tr>
+            <tr>
+              <td>Material de la carcasa</td>
+              <td>Fibra de carbono compuesta con resina termoestable</td>
+            </tr>
+            <tr>
+              <td>Homologaciones</td>
+              <td>ECE 22.06, DOT FMVSS 218</td>
+            </tr>
+            <tr>
+              <td>Peso aproximado</td>
+              <td>1350g ± 50g (talla M)</td>
+            </tr>
+            <tr>
+              <td>Visera</td>
+              <td>Curvatura racing, tratamiento antiarañazos, sistema Pinlock® 100% incluido</td>
+            </tr>
+            <tr>
+              <td>Sistema de ventilación</td>
+              <td>5 entradas frontales, 4 salidas traseras, mecanismos de apertura micrométricos</td>
+            </tr>
+            <tr>
+              <td>Forro interior</td>
+              <td>Tejido técnico CoolMax® antibacteriano, desmontable y lavable</td>
+            </tr>
+            <tr>
+              <td>Mejillas</td>
+              <td>Extraíbles con sistema de retención emergency</td>
+            </tr>
+            <tr>
+              <td>Sistema de cierre</td>
+              <td>Doble anilla de seguridad micrométrica</td>
+            </tr>
+            <tr>
+              <td>Aerodinámica</td>
+              <td>Alerón trasero integrado para reducir turbulencias y lift</td>
+            </tr>
+            <tr>
+              <td>Compatibilidad</td>
+              <td>Preparado para sistemas de comunicación (compatible con principales marcas)</td>
+            </tr>
+            <tr>
+              <td>Tallas disponibles</td>
+              <td>S (55-56 cm), M (57-58 cm), L (59-60 cm), XL (61-62 cm)</td>
+            </tr>
+            <tr>
+              <td>Colores disponibles</td>
+              <td>Rojo Racing, Negro Mate, Blanco Perla, Azul Metálico</td>
+            </tr>
+          </table>
+        </div>
+        
+        <div id="reviews" class="tab-content">
+          <h3>Opiniones de clientes</h3>
+          <div class="review">
+            <div class="review-header">
+              <strong>Miguel Ángel T.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p>"He probado varios cascos deportivos y el MR-X es sin duda el mejor en relación calidad-precio. Es increíblemente ligero, la ventilación es excelente incluso en días calurosos, y la visera Pinlock funciona perfectamente. Muy recomendable."</p>
+          </div>
+          
+          <div class="review">
+            <div class="review-header">
+              <strong>Laura M.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+            <p>"Compré el MR-X hace tres meses y estoy encantada. Es muy cómodo para viajes largos, no pesa nada y el sistema de ventilación es fantástico. El único punto negativo es que el sistema de cierre de doble anilla puede ser un poco complicado al principio, pero te acostumbras rápido."</p>
+          </div>
+          
+          <div class="review">
+            <div class="review-header">
+              <strong>Carlos R.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p>"Excelente casco por el precio. Lo uso tanto en ciudad como en carretera y siempre me ha dado una sensación de seguridad. El diseño es muy aerodinámico, a alta velocidad no se nota nada de turbulencia. El forro interior es muy cómodo y se puede lavar fácilmente."</p>
+          </div>
+        </div>
+        
+        <div id="sizing" class="tab-content">
+          <h3>Guía de tallas y medidas</h3>
+          <p>Para asegurar la máxima protección y comodidad, es fundamental elegir la talla correcta de casco. Sigue estos pasos:</p>
+          
+          <h4>Cómo medir tu cabeza:</h4>
+          <ol>
+            <li>Utiliza una cinta métrica flexible</li>
+            <li>Envuelve la cinta alrededor de tu cabeza, aproximadamente 2.5 cm por encima de las cejas</li>
+            <li>Asegúrate de que la cinta pase por la parte más ancha de la parte posterior de tu cabeza</li>
+            <li>La medida en centímetros corresponde a tu talla de casco</li>
+          </ol>
+          
+          <table class="specs-table">
+            <tr>
+              <th>Talla</th>
+              <th>Circunferencia (cm)</th>
+              <th>Circunferencia (pulgadas)</th>
+            </tr>
+            <tr>
+              <td>S</td>
+              <td>55-56 cm</td>
+              <td>21.7-22.0"</td>
+            </tr>
+            <tr>
+              <td>M</td>
+              <td>57-58 cm</td>
+              <td>22.4-22.8"</td>
+            </tr>
+            <tr>
+              <td>L</td>
+              <td>59-60 cm</td>
+              <td>23.2-23.6"</td>
+            </tr>
+            <tr>
+              <td>XL</td>
+              <td>61-62 cm</td>
+              <td>24.0-24.4"</td>
+            </tr>
+          </table>
+          
+          <h4>Recomendaciones de ajuste:</h4>
+          <p>Un casco bien ajustado debe sentirse firme pero no incómodamente apretado. Debe permanecer en su lugar cuando mueves la cabeza de lado a lado o de arriba a abajo. Las mejillas deben estar en contacto con las almohadillas interiores, pero no deberías sentir puntos de presión excesivos.</p>
+          
+          <p>Si estás entre dos tallas, recomendamos elegir la talla más pequeña para un ajuste más seguro.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2><i class="fas fa-shield-alt"></i> Garantía y Devoluciones</h2>
+      <p class="muted">Todos nuestros cascos incluyen 2 años de garantía y 30 días para devoluciones.</p>
+      <a href="garantias.html" class="btn btn-primary">Más Información</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Moto Rat</h3>
+          <p>Agitándolo todo desde 1971. Productos y accesorios para motociclistas apasionados.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cascos.html">Cascos</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="marcas.html">Marcas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terminos.html">Términos y condiciones</a></li>
+            <li><a href="privacidad.html">Política de privacidad</a></li>
+            <li><a href="devoluciones.html">Política de devoluciones</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/16tjynrNsG/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/h9u47uw7?igsh=anpyMWNwN3Jhc3hj" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">Derechos Reservados a Las ratas del 12-5 — &copy; <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript para el menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const mainMenu = document.getElementById('main-menu');
+      
+      // Añadir año actual al copyright
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Alternar menú al hacer clic en el botón de hamburguesa
+      menuToggle.addEventListener('click', function() {
+        mainMenu.classList.toggle('show');
+        
+        // Cambiar icono entre hamburguesa y X
+        const icon = menuToggle.querySelector('i');
+        if (mainMenu.classList.contains('show')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Cerrar menú al hacer clic en un enlace (útil en móviles)
+      const menuLinks = document.querySelectorAll('#main-menu a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mainMenu.classList.remove('show');
+          menuToggle.querySelector('i').classList.remove('fa-times');
+          menuToggle.querySelector('i').classList.add('fa-bars');
+        });
+      });
+    });
+
+    // Cambiar imagen principal al hacer clic en miniatura
+    function changeImage(thumbnail) {
+      document.getElementById('mainImage').src = thumbnail.src.replace('200', '1200');
+      
+      // Remover clase active de todas las miniaturas
+      document.querySelectorAll('.thumbnail').forEach(function(thumb) {
+        thumb.classList.remove('active');
+      });
+      
+      // Agregar clase active a la miniatura clickeada
+      thumbnail.classList.add('active');
+    }
+    
+    // Funcionalidad de pestañas
+    function openTab(evt, tabName) {
+      // Ocultar todos los contenidos de pestañas
+      document.querySelectorAll('.tab-content').forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+      
+      // Remover clase active de todos los encabezados de pestañas
+      document.querySelectorAll('.tab-header').forEach(function(header) {
+        header.classList.remove('active');
+      });
+      
+      // Mostrar la pestaña actual y agregar clase active al botón
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+    
+    // Seleccionar talla
+    function selectSize(element) {
+      document.querySelectorAll('.size-option').forEach(function(size) {
+        size.classList.remove('selected');
+      });
+      element.classList.add('selected');
+    }
+    
+    // Seleccionar color
+    function selectColor(element) {
+      document.querySelectorAll('.color-option').forEach(function(color) {
+        color.classList.remove('selected');
+      });
+      element.classList.add('selected');
+    }
+  </script>
+</body>
+</html>
