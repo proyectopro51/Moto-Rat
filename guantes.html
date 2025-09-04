@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Guantes de Motocross - Moto Rat</title>
+  <meta name="description" content="Guantes de Motocross profesionales en Moto Rat - Máxima protección y comodidad para riders exigentes">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+  <style>
+    :root {
+      --primary: #2a9d8f;
+      --secondary: #264653;
+      --accent: #e9c46a;
+      --light: #f1faee;
+      --dark: #264653;
+      --muted: #6c757d;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Header y navegación */
+    header {
+      background-color: var(--secondary);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav li {
+      margin-left: 1.5rem;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    
+    nav a i {
+      margin-right: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Estilos para la sección de productos */
+    .section {
+      padding: 3rem 0;
+    }
+    
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .section h2 i {
+      margin-right: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .muted {
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    
+    .hero {
+      height: 500px;
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      position: relative;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1549318061-5ec2d3d7ca05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+    
+    .hero-left {
+      background: rgba(0,0,0,0.7);
+      padding: 1.5rem;
+      border-radius: 8px;
+      color: white;
+      max-width: 600px;
+    }
+    
+    .logo-big {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    
+    .tag {
+      font-size: 1.2rem;
+    }
+    
+    .product-detail-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .product-gallery {
+      position: relative;
+    }
+    
+    .main-image {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .thumbnail-container {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .thumbnail {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    
+    .thumbnail:hover, .thumbnail.active {
+      opacity: 1;
+    }
+    
+    .product-info {
+      padding: 1rem 0;
+    }
+    
+    .product-badge {
+      background-color: var(--primary);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    
+    .product-title {
+      font-size: 2.2rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .price-old {
+      text-decoration: line-through;
+      color: var(--muted);
+      font-size: 1.4rem;
+      margin-right: 0.5rem;
+    }
+    
+    .product-description {
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+    }
+    
+    .product-actions {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: #21867a;
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background-color: #1a3542;
+    }
+    
+    .btn i {
+      margin-right: 0.5rem;
+    }
+    
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    
+    .specs-table th, .specs-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .specs-table th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+    
+    .specs-table tr:hover {
+      background-color: #f8f9fa;
+    }
+    
+    /* Tabs */
+    .tabs {
+      margin: 2rem 0;
+    }
+    
+    .tab-headers {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 1rem;
+    }
+    
+    .tab-header {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 3px solid transparent;
+    }
+    
+    .tab-header.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 1rem 0;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    /* Tallas */
+    .sizes {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .size-option {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .size-option:hover {
+      border-color: var(--primary);
+    }
+    
+    .size-option.selected {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    /* Colores */
+    .colors {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+    }
+    
+    .color-option:hover {
+      transform: scale(1.1);
+    }
+    
+    .color-option.selected {
+      border-color: var(--dark);
+    }
+    
+    .color-black {
+      background-color: #000;
+    }
+    
+    .color-blue {
+      background-color: #2a9d8f;
+    }
+    
+    .color-red {
+      background-color: #e63946;
+    }
+    
+    .color-green {
+      background-color: #2a9d8f;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+    }
+    
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Media queries para responsividad */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--secondary);
+        padding: 1rem;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      nav li {
+        margin: 0.5rem 0;
+      }
+      
+      .product-detail-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-actions {
+        flex-direction: column;
+      }
+      
+      .hero {
+        height: 400px;
+      }
+      
+      .logo-big {
+        font-size: 2.5rem;
+      }
+      
+      .tab-headers {
+        flex-wrap: wrap;
+      }
+      
+      .sizes, .colors {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">Moto Rat</div>
+      <button class="menu-toggle" aria-label="Toggle menu" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="main-menu">
+          <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+          <li><a href="accesorios.html"><i class="fas fa-mitten"></i> ACCESORIOS</a></li>
+          <li><a href="productos.html"><i class="fas fa-motorcycle"></i> PRODUCTOS</a></li>
+          <li><a href="marcas.html"><i class="fas fa-tags"></i> MARCAS</a></li>
+          <li><a href="blog.html"><i class="fas fa-newspaper"></i> BLOG</a></li>
+          <li><a href="contacto.html"><i class="fas fa-envelope"></i> CONTÁCTANOS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-left">
+        <div class="logo-big">Guantes MX Pro</div>
+        <div class="tag">Protección superior para riders exigentes</div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="product-detail-container">
+        <div class="product-gallery">
+          <img src="https://images.unsplash.com/photo-1549318061-5ec2d3d7ca05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Guantes de Motocross" class="main-image" id="mainImage">
+          
+          <div class="thumbnail-container">
+            <img src="https://images.unsplash.com/photo-1549318061-5ec2d3d7ca05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Guantes de Motocross - Vista frontal" class="thumbnail active" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1622737133800-7c48cacabd8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Guantes de Motocross - Detalle palma" class="thumbnail" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1601579539510-0c5dce4c8c1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Guantes de Motocross - En uso" class="thumbnail" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1599745780889-cc063be3cbd5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Guantes de Motocross - Vista lateral" class="thumbnail" onclick="changeImage(this)">
+          </div>
+        </div>
+        
+        <div class="product-info">
+          <span class="product-badge">NUEVO MODELO</span>
+          <h1 class="product-title">Guantes de Motocross MX Pro</h1>
+          <div class="product-price">
+            <span class="price-old">$89.99</span> $69.99
+          </div>
+          
+          <p class="product-description">
+            Los guantes de motocross MX Pro están diseñados para ofrecer la máxima protección, comodidad 
+            y control en condiciones extremas. Con tecnología de absorción de impactos y materiales 
+            transpirables, son la elección perfecta para riders profesionales y aficionados.
+          </p>
+          
+          <div class="sizes">
+            <div class="size-option" onclick="selectSize(this)">S</div>
+            <div class="size-option selected" onclick="selectSize(this)">M</div>
+            <div class="size-option" onclick="selectSize(this)">L</div>
+            <div class="size-option" onclick="selectSize(this)">XL</div>
+            <div class="size-option" onclick="selectSize(this)">XXL</div>
+          </div>
+          
+          <div class="colors">
+            <div class="color-option color-black selected" onclick="selectColor(this)" title="Negro"></div>
+            <div class="color-option color-blue" onclick="selectColor(this)" title="Azul"></div>
+            <div class="color-option color-red" onclick="selectColor(this)" title="Rojo"></div>
+            <div class="color-option color-green" onclick="selectColor(this)" title="Verde"></div>
+          </div>
+          
+          <div class="product-actions">
+            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Añadir al Carrito</button>
+            <button class="btn btn-secondary"><i class="fas fa-heart"></i> Guardar en Favoritos</button>
+          </div>
+          
+          <table class="specs-table">
+            <tr>
+              <th>Característica</th>
+              <th>Detalle</th>
+            </tr>
+            <tr>
+              <td>Material</td>
+              <td>Cuero de cabra, malla técnica, protectores TPU</td>
+            </tr>
+            <tr>
+              <td>Protección</td>
+              <td>Protectores en nudillos y falanges, refuerzos palmares</td>
+            </tr>
+            <tr>
+              <td>Climatización</td>
+              <td>Paneles de malla ventilados</td>
+            </tr>
+            <tr>
+              <td>Cierre</td>
+              <td>Velcro ajustable de 5 cm</td>
+            </tr>
+            <tr>
+              <td>Lavado</td>
+              <td>Lavable a máquina (30°C)</td>
+            </tr>
+            <tr>
+              <td>Uso recomendado</td>
+              <td>Motocross, Enduro, Todo Terreno</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      
+      <div class="tabs">
+        <div class="tab-headers">
+          <div class="tab-header active" onclick="openTab(event, 'description')">Descripción</div>
+          <div class="tab-header" onclick="openTab(event, 'specs')">Especificaciones</div>
+          <div class="tab-header" onclick="openTab(event, 'reviews')">Opiniones</div>
+          <div class="tab-header" onclick="openTab(event, 'sizing')">Guía de Tallas</div>
+        </div>
+        
+        <div id="description" class="tab-content active">
+          <h3>Guantes de Motocross MX Pro: Rendimiento y Protección</h3>
+          <p>
+            Los guantes MX Pro han sido desarrollados en colaboración con riders profesionales para ofrecer 
+            el máximo rendimiento en condiciones extremas. Su diseño ergonómico proporciona un ajuste perfecto 
+            que mejora el control sobre los mandos de la moto, mientras que los materiales de alta calidad 
+            garantizan una protección superior.
+          </p>
+          <p>
+            La combinación de cuero de cabra flexible en la palma y materiales técnicos en el dorso ofrece 
+            la durabilidad necesaria para resistir caídas y rozaduras, manteniendo la sensibilidad táctil 
+            para un control preciso del acelerador, freno y embrague.
+          </p>
+          <p>
+            Características destacadas:
+          </p>
+          <ul>
+            <li>Palma de cuero de cabra de primera calidad para máxima durabilidad y sensibilidad</li>
+            <li>Protectores de TPU moldeados por inyección en nudillos y falanges</li>
+            <li>Paneles de malla ventilada para una óptima circulación del aire</li>
+            <li>Diseño precurvado para reducir la fatiga en manos y muñecas</li>
+            <li>Refuerzos estratégicos en zonas de alto desgaste</li>
+            <li>Cierre de velcro extra ancho para un ajuste seguro y personalizable</li>
+            <li>Punta del dedo touchscreen compatible con dispositivos táctiles</li>
+          </ul>
+          <p>
+            Estos guantes no son solo un elemento de protección, son una herramienta que mejora tu rendimiento 
+            sobre la moto. Su diseño aerodinámico reduce la resistencia al viento y su construcción ligera 
+            evita la fatiga durante largas jornadas de riding.
+          </p>
+        </div>
+        
+        <div id="specs" class="tab-content">
+          <h3>Especificaciones técnicas completas</h3>
+          <table class="specs-table">
+            <tr>
+              <th>Característica</th>
+              <th>Detalle</th>
+            </tr>
+            <tr>
+              <td>Material principal</td>
+              <td>Cuero de cabra (palma), Poliéster técnico (dorso)</td>
+            </tr>
+            <tr>
+              <td>Protecciones</td>
+              <td>TPU en nudillos, falanges y metacarpos</td>
+            </tr>
+            <tr>
+              <td>Sistema de ventilación</td>
+              <td>Paneles de malla 3D en dorso y entre dedos</td>
+            </tr>
+            <tr>
+              <td>Características especiales</td>
+              <td>Punta touchscreen, limpiador de visera integrado</td>
+            </tr>
+            <tr>
+              <td>Cierre</td>
+              <td>Correa de velcro de 5 cm de ancho</td>
+            </tr>
+            <tr>
+              <td>Costuras</td>
+              <td>Triple puntada en áreas críticas, reforzadas con hilo de Kevlar®</td>
+            </tr>
+            <tr>
+              <td>Tallas disponibles</td>
+              <td>S, M, L, XL, XXL</td>
+            </tr>
+            <tr>
+              <td>Colores</td>
+              <td>Negro, Azul, Rojo, Verde</td>
+            </tr>
+            <tr>
+              <td>Peso (par, talla M)</td>
+              <td>180g</td>
+            </tr>
+            <tr>
+              <td>Lavado</td>
+              <td>Lavable a máquina a 30°C, no blanquear, no secar en secadora</td>
+            </tr>
+            <tr>
+              <td>Recomendaciones de uso</td>
+              <td>Motocross, Enduro, Dual Sport, Todo Terreno</td>
+            </tr>
+            <tr>
+              <td>Garantía</td>
+              <td>6 meses contra defectos de fabricación</td>
+            </tr>
+          </table>
+        </div>
+        
+        <div id="reviews" class="tab-content">
+          <h3>Opiniones de clientes</h3>
+          <div class="review">
+            <div class="review-header">
+              <strong>Javier M.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p>"He probado muchos guantes de motocross y estos son, sin duda, los mejores en relación calidad-precio. La protección en los nudillos es excelente, son cómodos desde el primer uso y la ventilación es increíble en días calurosos. Muy recomendables."</p>
+          </div>
+          
+          <div class="review">
+            <div class="review-header">
+              <strong>Ana L.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+            <p>"Compré estos guantes para enduro y estoy encantada. El ajuste es perfecto, no se mueven durante el riding y la protección es excelente. El único punto negativo es que el sistema touchscreen no funciona tan bien como esperaba, pero por lo demás, perfectos."</p>
+          </div>
+          
+          <div class="review">
+            <div class="review-header">
+              <strong>Carlos R.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p>"Excelentes guantes por el precio. Los he usado en competición y han aguantado perfectamente varias caídas. La palma de cuero es muy resistente y los refuerzos en zonas de roce han evitado que se desgasten. La ventilación es muy buena, no paso calor incluso en verano."</p>
+          </div>
+        </div>
+        
+        <div id="sizing" class="tab-content">
+          <h3>Guía de tallas y medidas</h3>
+          <p>Para asegurar el ajuste perfecto y la máxima comodidad, es fundamental elegir la talla correcta de guantes. Sigue estos pasos:</p>
+          
+          <h4>Cómo medir tu mano:</h4>
+          <ol>
+            <li>Utiliza una cinta métrica flexible</li>
+            <li>Envuelve la cinta alrededor de tu mano dominante, justo por debajo de los nudillos (excluyendo el pulgar)</li>
+            <li>Asegúrate de que la cinta métrica pase por la parte más ancha de tu mano</li>
+            <li>Anota la medida en centímetros</li>
+            <li>Consulta la tabla de tallas para encontrar tu medida</li>
+          </ol>
+          
+          <table class="specs-table">
+            <tr>
+              <th>Talla</th>
+              <th>Circunferencia (cm)</th>
+              <th>Circunferencia (pulgadas)</th>
+            </tr>
+            <tr>
+              <td>S</td>
+              <td>18-19 cm</td>
+              <td>7.1-7.5"</td>
+            </tr>
+            <tr>
+              <td>M</td>
+              <td>20-21 cm</td>
+              <td>7.9-8.3"</td>
+            </tr>
+            <tr>
+              <td>L</td>
+              <td>22-23 cm</td>
+              <td>8.7-9.1"</td>
+            </tr>
+            <tr>
+              <td>XL</td>
+              <td>24-25 cm</td>
+              <td>9.4-9.8"</td>
+            </tr>
+            <tr>
+              <td>XXL</td>
+              <td>26-27 cm</td>
+              <td>10.2-10.6"</td>
+            </tr>
+          </table>
+          
+          <h4>Recomendaciones de ajuste:</h4>
+          <p>Unos guantes bien ajustados deben sentirse cómodos pero no apretados. Debes poder mover los dedos con libertad y hacer un puño completo sin restricciones. Los guantes nuevos pueden sentirse ligeramente ajustados al principio, pero se adaptarán a la forma de tu mano con el uso.</p>
+          
+          <p>Si estás entre dos tallas, recomendamos elegir la talla más grande si prefieres un ajuste más holgado o la más pequeña si prefieres un ajuste más ceñido y directo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2><i class="fas fa-truck"></i> Envío Gratis</h2>
+      <p class="muted">Envío gratuito para pedidos superiores a $100. Entrega en 24-48h.</p>
+      <a href="envios.html" class="btn btn-primary">Más Información</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Moto Rat</h3>
+          <p>Agitándolo todo desde 1971. Productos y accesorios para motociclistas apasionados.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="accesorios.html">Accesorios</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="marcas.html">Marcas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terminos.html">Términos y condiciones</a></li>
+            <li><a href="privacidad.html">Política de privacidad</a></li>
+            <li><a href="devoluciones.html">Política de devoluciones</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/16tjynrNsG/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/h9u47uw7?igsh=anpyMWNwN3Jhc3hj" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">Derechos Reservados a Las ratas del 12-5 — &copy; <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript para el menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const mainMenu = document.getElementById('main-menu');
+      
+      // Añadir año actual al copyright
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Alternar menú al hacer clic en el botón de hamburguesa
+      menuToggle.addEventListener('click', function() {
+        mainMenu.classList.toggle('show');
+        
+        // Cambiar icono entre hamburguesa y X
+        const icon = menuToggle.querySelector('i');
+        if (mainMenu.classList.contains('show')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Cerrar menú al hacer clic en un enlace (útil en móviles)
+      const menuLinks = document.querySelectorAll('#main-menu a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mainMenu.classList.remove('show');
+          menuToggle.querySelector('i').classList.remove('fa-times');
+          menuToggle.querySelector('i').classList.add('fa-bars');
+        });
+      });
+    });
+
+    // Cambiar imagen principal al hacer clic en miniatura
+    function changeImage(thumbnail) {
+      document.getElementById('mainImage').src = thumbnail.src.replace('200', '1200');
+      
+      // Remover clase active de todas las miniaturas
+      document.querySelectorAll('.thumbnail').forEach(function(thumb) {
+        thumb.classList.remove('active');
+      });
+      
+      // Agregar clase active a la miniatura clickeada
+      thumbnail.classList.add('active');
+    }
+    
+    // Funcionalidad de pestañas
+    function openTab(evt, tabName) {
+      // Ocultar todos los contenidos de pestañas
+      document.querySelectorAll('.tab-content').forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+      
+      // Remover clase active de todos los encabezados de pestañas
+      document.querySelectorAll('.tab-header').forEach(function(header) {
+        header.classList.remove('active');
+      });
+      
+      // Mostrar la pestaña actual y agregar clase active al botón
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+    
+    // Seleccionar talla
+    function selectSize(element) {
+      document.querySelectorAll('.size-option').forEach(function(size) {
+        size.classList.remove('selected');
+      });
+      element.classList.add('selected');
+    }
+    
+    // Seleccionar color
+    function selectColor(element) {
+      document.querySelectorAll('.color-option').forEach(function(color) {
+        color.classList.remove('selected');
+      });
+      element.classList.add('selected');
+    }
+  </script>
+</body>
+</html>
