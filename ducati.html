@@ -648,3 +648,136 @@
                 </div>
             </div>
         </div>
+         <div class="related-products">
+            <h2 class="section-title">Productos Relacionados</h2>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1624302244418-35614c6d747d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Casco deportivo" loading="lazy">
+                    </div>
+                    <div class="product-body">
+                        <span class="product-badge">Nuevo</span>
+                        <h3 class="product-title">Casco Deportivo MR-X</h3>
+                        <div class="product-price">$299.99</div>
+                        <button class="btn btn-primary">Ver Detalles</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1623778027845-94c101a4b2f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Guantes de cuero" loading="lazy">
+                    </div>
+                    <div class="product-body">
+                        <span class="product-badge">Oferta</span>
+                        <h3 class="product-title">Guantes de Cuero Racing</h3>
+                        <div class="product-price"><s>$129.99</s> $99.99</div>
+                        <button class="btn btn-primary">Ver Detalles</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Sistema de escape" loading="lazy">
+                    </div>
+                    <div class="product-body">
+                        <span class="product-badge">Más vendido</span>
+                        <h3 class="product-title">Escape Racing Full System</h3>
+                        <div class="product-price">$849.99</div>
+                        <button class="btn btn-primary">Ver Detalles</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Moto Rat</h3>
+                    <p>Agitándolo todo desde 1971. Productos y accesorios para motociclistas apasionados.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="marcas.html">Marcas</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="terminos.html">Términos y condiciones</a></li>
+                        <li><a href="privacidad.html">Política de privacidad</a></li>
+                        <li><a href="cookies.html">Política de cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/16tjynrNsG/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/h9u47uw7?igsh=anpyMWNwN3Jhc3hj" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">Derechos Reservados a Las ratas del 12-5 — &copy; <span id="year"></span></div>
+        </div>
+    </footer>
+
+    <script>
+        // Año actual para el copyright
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Cambiar imagen principal al hacer clic en miniatura
+        function changeImage(thumbnail) {
+            document.getElementById('mainImage').src = thumbnail.src.replace('200', '1200');
+            
+            // Remover clase active de todas las miniaturas
+            document.querySelectorAll('.thumbnail').forEach(function(thumb) {
+                thumb.classList.remove('active');
+            });
+            
+            // Agregar clase active a la miniatura clickeada
+            thumbnail.classList.add('active');
+        }
+        
+        // Funcionalidad de pestañas
+        function openTab(evt, tabName) {
+            // Ocultar todos los contenidos de pestañas
+            document.querySelectorAll('.tab-content').forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+            
+            // Remover clase active de todos los encabezados de pestañas
+            document.querySelectorAll('.tab-header').forEach(function(header) {
+                header.classList.remove('active');
+            });
+            
+            // Mostrar la pestaña actual y agregar clase active al botón
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+        
+        // Menú móvil
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const menu = document.getElementById('main-menu');
+            menu.classList.toggle('show');
+            
+            // Cambiar icono
+            const icon = this.querySelector('i');
+            if (menu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
+</body>
+</html>
+
