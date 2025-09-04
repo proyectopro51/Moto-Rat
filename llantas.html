@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sistema de Escape Racing - Moto Rat</title>
-  <meta name="description" content="Sistema de Escape Racing en Moto Rat - Rendimiento y estilo para tu moto">
+  <title>Llantas Deportivas MR500 - Moto Rat</title>
+  <meta name="description" content="Llantas Deportivas MR500 en Moto Rat - Máximo agarre y rendimiento para tu moto">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
   <style>
     :root {
@@ -14,7 +14,7 @@
       --light: #f1faee;
       --dark: #1d3557;
       --muted: #6c757d;
-      --harley-orange: #ff6600;
+      --tire-black: #333333;
     }
     
     * {
@@ -123,7 +123,7 @@
       margin: 2rem 0;
       border-radius: 8px;
       position: relative;
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1624444003229-fb731d80e5c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
     }
     
     .hero-left {
@@ -138,7 +138,7 @@
       font-size: 3.5rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
-      color: var(--harley-orange);
+      color: var(--primary);
     }
     
     .tag {
@@ -158,6 +158,8 @@
     
     .main-image {
       width: 100%;
+      height: 400px;
+      object-fit: cover;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
@@ -311,6 +313,32 @@
       display: block;
     }
     
+    /* Tallas */
+    .sizes {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+    
+    .size-option {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .size-option:hover {
+      border-color: var(--primary);
+    }
+    
+    .size-option.selected {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
     /* Footer */
     footer {
       background-color: var(--dark);
@@ -420,6 +448,10 @@
       .tab-headers {
         flex-wrap: wrap;
       }
+      
+      .main-image {
+        height: 300px;
+      }
     }
   </style>
 </head>
@@ -446,35 +478,43 @@
   <main>
     <section class="hero container">
       <div class="hero-left">
-        <div class="logo-big">Sistema de Escape Racing</div>
-        <div class="tag">Potencia y estilo para tu moto de alto rendimiento</div>
+        <div class="logo-big">Llantas MR500</div>
+        <div class="tag">Máximo agarre y rendimiento en carretera</div>
       </div>
     </section>
 
     <section class="section container">
       <div class="product-detail-container">
         <div class="product-gallery">
-          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Sistema de Escape Racing" class="main-image" id="mainImage">
+          <img id="mainImage" src="https://images.unsplash.com/photo-1624444003229-fb731d80e5c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Llantas Deportivas MR500" class="main-image">
           
           <div class="thumbnail-container">
-            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Escape Racing - Vista lateral" class="thumbnail active" onclick="changeImage(this)">
-            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Escape Racing - Detalle tubo" class="thumbnail" onclick="changeImage(this)">
-            <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Escape Racing - Instalación" class="thumbnail" onclick="changeImage(this)">
-            <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Escape Racing - Detalle acabado" class="thumbnail" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1624444003229-fb731d80e5c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Llantas MR500 - Vista frontal" class="thumbnail active" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Llantas MR500 - Detalle banda de rodadura" class="thumbnail" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1603712610494-73e2786f9f4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Llantas MR500 - En acción" class="thumbnail" onclick="changeImage(this)">
+            <img src="https://images.unsplash.com/photo-1624444003230-0d2c543e47e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Llantas MR500 - Comparativa" class="thumbnail" onclick="changeImage(this)">
           </div>
         </div>
         
         <div class="product-info">
-          <h1 class="product-title">Sistema de Escape Racing</h1>
-          <div class="product-price">$1,350.00</div>
+          <span class="product-badge">NUEVO MODELO</span>
+          <h1 class="product-title">Llantas Deportivas MR500</h1>
+          <div class="product-price">$420.00</div>
           
           <p class="product-description">
-            Mejora el rendimiento y el sonido de tu motocicleta con nuestro Sistema de Escape Racing de alta calidad. Fabricado en acero inoxidable y diseñado para maximizar el flujo de gases, este escape ofrece un aumento notable en potencia y un sonido agresivo que hará que tu moto destaque.
+            Diseñadas para los amantes de la velocidad y el rendimiento, las Llantas Deportivas MR500 ofrecen un agarre excepcional en todo tipo de condiciones. Su compuesto de goma de última generación y su diseño de banda de rodadura optimizado proporcionan máxima tracción y estabilidad en curvas.
           </p>
           
+          <div class="sizes">
+            <div class="size-option selected" onclick="selectSize(this)">120/70 ZR 17</div>
+            <div class="size-option" onclick="selectSize(this)">180/55 ZR 17</div>
+            <div class="size-option" onclick="selectSize(this)">120/60 ZR 17</div>
+            <div class="size-option" onclick="selectSize(this)">190/50 ZR 17</div>
+          </div>
+          
           <div class="product-actions">
-            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar Ahora</button>
-            <button class="btn btn-secondary"><i class="fas fa-credit-card"></i> Solicitar Financiación</button>
+            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Añadir al Carrito</button>
+            <button class="btn btn-secondary"><i class="fas fa-tools"></i> Agendar Instalación</button>
           </div>
           
           <table class="specs-table">
@@ -483,36 +523,36 @@
               <th>Detalle</th>
             </tr>
             <tr>
-              <td>Material</td>
-              <td>Acero inoxidable 304</td>
+              <td>Tipo</td>
+              <td>Neumático deportivo de carretera</td>
             </tr>
             <tr>
-              <td>Compatibilidad</td>
-              <td>Modelos deportivos y naked 600-1000cc</td>
+              <td>Compuesto</td>
+              <td>Goma de sílice de triple compuesto</td>
             </tr>
             <tr>
-              <td>Tipo de escape</td>
-              <td>Slip-on con silenciador deportivo</td>
+              <td>Estructura</td>
+              <td>Radial de 0°</td>
             </tr>
             <tr>
-              <td>Acabado</td>
-              <td>Negro mate con detalles en carbono</td>
+              <td>Banda de rodadura</td>
+              <td>Asimétrica con diseño de agarre progresivo</td>
             </tr>
             <tr>
-              <td>Peso</td>
-              <td>3.5 kg</td>
+              <td>Indicador de desgaste</td>
+              <td>TWI integrado</td>
             </tr>
             <tr>
-              <td>Reducción de peso</td>
-              <td>Hasta 30% menos que el escape original</td>
+              <td>Homologación</td>
+              <td>DOT y ECE</td>
             </tr>
             <tr>
-              <td>Sonido</td>
-              <td>Profundo y agresivo, homologado</td>
+              <td>Rendimiento en mojado</td>
+              <td>Excelente (Rating A)</td>
             </tr>
             <tr>
-              <td>Garantía</td>
-              <td>2 años</td>
+              <td>Duración estimada</td>
+              <td>8,000-10,000 km (trasera)</td>
             </tr>
           </table>
         </div>
@@ -526,27 +566,27 @@
         </div>
         
         <div id="description" class="tab-content active">
-          <h3>Sistema de Escape Racing: Rendimiento y estilo en uno</h3>
+          <h3>Llantas Deportivas MR500: Tecnología y Rendimiento</h3>
           <p>
-            Nuestro Sistema de Escape Racing está diseñado para los motociclistas que buscan maximizar el rendimiento de su moto sin sacrificar el estilo. Fabricado con materiales de alta calidad, garantiza durabilidad y resistencia a altas temperaturas.
+            Las llantas MR500 representan lo último en tecnología de neumáticos deportivos. Desarrolladas con un compuesto de goma de sílice de triple densidad, ofrecen un equilibrio perfecto entre agarre, durabilidad y rendimiento en condiciones variables.
           </p>
           <p>
-            El diseño slip-on facilita la instalación y mejora el flujo de gases, lo que se traduce en un aumento de potencia y una respuesta más rápida del motor. Además, su acabado en negro mate con detalles en carbono aporta un look agresivo y moderno.
+            Su diseño de banda de rodadura asimétrica proporciona una mayor superficie de contacto en inclinación, maximizando el agarre en curvas, mientras que los canales de drenaje profundos garantizan una evacuación eficiente del agua en superficies mojadas.
           </p>
           <p>
             Características destacadas:
           </p>
           <ul>
-            <li>Fabricado en acero inoxidable 304 para máxima durabilidad</li>
-            <li>Diseño slip-on compatible con múltiples modelos deportivos</li>
-            <li>Reducción significativa de peso respecto al escape original</li>
-            <li>Sonido profundo y agresivo, homologado para uso en carretera</li>
-            <li>Acabado negro mate con detalles en fibra de carbono</li>
-            <li>Fácil instalación sin modificaciones mayores</li>
-            <li>Garantía de 2 años contra defectos de fabricación</li>
+            <li>Compuesto de triple densidad con sílice para máximo agarre en frío y caliente</li>
+            <li>Diseño asimétrico de banda de rodadura para mejor comportamiento en curvas</li>
+            <li>Estructura radial de 0° para mayor estabilidad a alta velocidad</li>
+            <li>Canales de drenaje optimizados para excelente rendimiento en mojado</li>
+            <li>Indicadores de desgaste TWI para un mantenimiento preventivo</li>
+            <li>Pared lateral reforzada para mejor respuesta en frenadas fuertes</li>
+            <li>Homologación DOT y ECE para uso en carretera</li>
           </ul>
           <p>
-            Eleva la experiencia de conducción y destaca en la carretera con nuestro Sistema de Escape Racing, la elección perfecta para quienes exigen lo mejor en rendimiento y estilo.
+            Las MR500 no son solo neumáticos, son tu conexión con el asfalto. Su tecnología avanzada y diseño de compuesto específico las convierten en la elección perfecta para pilotos exigentes que buscan el máximo rendimiento en carretera y circuito.
           </p>
         </div>
         
@@ -558,6 +598,213 @@
               <th>Detalle</th>
             </tr>
             <tr>
-              <td>Material</td>
-              <td>Acero inoxidable 304</td>
-            </tr Login to continue using
+              <td>Tipo de neumático</td>
+              <td>Deportivo de carretera</td>
+            </tr>
+            <tr>
+              <td>Estructura</td>
+              <td>Radial de 0°</td>
+            </tr>
+            <tr>
+              <td>Compuesto</td>
+              <td>Triple compuesto de sílice con refuerzos de carbono</td>
+            </tr>
+            <tr>
+              <td>Índice de velocidad</td>
+              <td>W (270 km/h)</td>
+            </tr>
+            <tr>
+              <td>Índice de carga</td>
+              <td>73 (365 kg)</td>
+            </tr>
+            <tr>
+              <td>Presión recomendada</td>
+              <td>2.5 bar (delantera) / 2.9 bar (trasera)</td>
+            </tr>
+            <tr>
+              <td>Banda de rodadura</td>
+              <td>Asimétrica con 5mm profundidad central</td>
+            </tr>
+            <tr>
+              <td>Homologaciones</td>
+              <td>DOT, ECE R75</td>
+            </tr>
+            <tr>
+              <td>Temperatura de trabajo</td>
+              <td>Desde 15°C hasta 70°C</td>
+            </tr>
+            <tr>
+              <td>Tallas disponibles</td>
+              <td>120/70 ZR 17, 180/55 ZR 17, 120/60 ZR 17, 190/50 ZR 17</td>
+            </tr>
+            <tr>
+              <td>Peso aproximado</td>
+              <td>5.8 kg (delantera), 8.2 kg (trasera 180/55)</td>
+            </tr>
+            <tr>
+              <td>Garantía</td>
+              <td>2 años contra defectos de fabricación</td>
+            </tr>
+          </table>
+        </div>
+        
+        <div id="reviews" class="tab-content">
+          <h3>Opiniones de clientes</h3>
+          <div class="review">
+            <div class="review-header">
+              <strong>Javier R.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p>"He probado varias marcas de neumáticos deportivos y las MR500 son simplemente excepcionales. El agarre en seco es impresionante, y en mojado me siento igual de seguro. La respuesta en curvas es precisa y progresiva. Muy recomendables para quien busque rendimiento real."</p>
+          </div>
+          
+          <div class="review">
+            <div class="review-header">
+              <strong>Carmen L.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+            <p>"Compré las MR500 hace dos meses para mi moto deportiva y estoy encantada. La diferencia con los neumáticos originales es abismal, especialmente en curvas cerradas. El único punto a mejorar sería la duración, pero es normal en neumáticos tan blandos y adherentes."</p>
+          </div>
+          
+          <div class="review">
+            <div class="review-header">
+              <strong>Diego M.</strong>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p>"Excelente relación calidad-precio. Las uso tanto en ciudad como en carretera y siempre me han dado una sensación de seguridad. El comportamiento en mojado es mejor que el de neumáticos más caros que he probado. Sin duda repetiré cuando se desgasten."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Moto Rat</h3>
+          <p>Agitándolo todo desde 1971. Productos y accesorios para motociclistas apasionados.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="marcas.html">Marcas</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terminos.html">Términos y condiciones</a></li>
+            <li><a href="privacidad.html">Política de privacidad</a></li>
+            <li><a href="cookies.html">Política de cookies</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/16tjynrNsG/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/h9u47uw7?igsh=anpyMWNwN3Jhc3hj" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">Derechos Reservados a Las ratas del 12-5 — &copy; <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript para el menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const mainMenu = document.getElementById('main-menu');
+      
+      // Añadir año actual al copyright
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Alternar menú al hacer clic en el botón de hamburguesa
+      menuToggle.addEventListener('click', function() {
+        mainMenu.classList.toggle('show');
+        
+        // Cambiar icono entre hamburguesa y X
+        const icon = menuToggle.querySelector('i');
+        if (mainMenu.classList.contains('show')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Cerrar menú al hacer clic en un enlace (útil en móviles)
+      const menuLinks = document.querySelectorAll('#main-menu a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mainMenu.classList.remove('show');
+          menuToggle.querySelector('i').classList.remove('fa-times');
+          menuToggle.querySelector('i').classList.add('fa-bars');
+        });
+      });
+    });
+
+    // Cambiar imagen principal al hacer clic en miniatura
+    function changeImage(thumbnail) {
+      document.getElementById('mainImage').src = thumbnail.src.replace('200', '1200');
+      
+      // Remover clase active de todas las miniaturas
+      document.querySelectorAll('.thumbnail').forEach(function(thumb) {
+        thumb.classList.remove('active');
+      });
+      
+      // Agregar clase active a la miniatura clickeada
+      thumbnail.classList.add('active');
+    }
+    
+    // Funcionalidad de pestañas
+    function openTab(evt, tabName) {
+      // Ocultar todos los contenidos de pestañas
+      document.querySelectorAll('.tab-content').forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+      
+      // Remover clase active de todos los encabezados de pestañas
+      document.querySelectorAll('.tab-header').forEach(function(header) {
+        header.classList.remove('active');
+      });
+      
+      // Mostrar la pestaña actual y agregar clase active al botón
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+    
+    // Seleccionar talla
+    function selectSize(element) {
+      document.querySelectorAll('.size-option').forEach(function(size) {
+        size.classList.remove('selected');
+      });
+      element.classList.add('selected');
+    }
+  </script>
+</body>
+</html>
