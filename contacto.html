@@ -6,7 +6,6 @@
   <title>Contacto - Moto Rat</title>
   <meta name="description" content="Contacta con Moto Rat" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
   <style>
      /* Estilos base */
     :root {
@@ -93,6 +92,262 @@
       font-size: 1.5rem;
       cursor: pointer;
     }
+    
+    /* Hero section */
+    .hero {
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: white;
+      position: relative;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+    }
+    
+    .hero-left {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .logo-big {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tag {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    /* Secciones */
+    .section {
+      padding: 2rem 0;
+    }
+    
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+    }
+    
+    .section h2 i {
+      margin-right: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .section h3 {
+      font-size: 1.3rem;
+      margin: 1rem 0 0.5rem;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+    }
+    
+    .section h3 i {
+      margin-right: 0.5rem;
+      color: var(--primary);
+      font-size: 1rem;
+    }
+    
+    .muted {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Panel y cards */
+    .panel {
+      display: flex;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* Formularios */
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .form-group {
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    select.form-control {
+      background-color: white;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+    }
+    
+    .btn-primary:hover {
+      background-color: #c1121f;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 3rem 0 1rem;
+      margin-top: 3rem;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      color: white;
+      background-color: rgba(255,255,255,0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      transition: background-color 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #ddd;
+    }
+    
+    /* Feedback de formulario */
+    .form-feedback {
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 4px;
+      display: none;
+    }
+    
+    .form-feedback.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      display: block;
+    }
+    
+    .form-feedback.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+      display: block;
+    }
+    
+    /* Loading spinner */
+    .form-loading {
+      display: none;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top: 4px solid var(--primary);
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
      /* Media queries para responsividad */
     @media (max-width: 768px) {
       .menu-toggle {
@@ -118,7 +373,7 @@
         margin: 0.5rem 0;
       }
       
-      .ctas {
+      .panel {
         flex-direction: column;
       }
       
@@ -131,17 +386,17 @@
         font-size: 3rem;
       }
       
-      .cookie {
+      .form-row {
         flex-direction: column;
-        text-align: center;
+        gap: 0;
       }
       
-      .cookie-buttons {
-        margin-top: 1rem;
+      .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
       }
-    
     }
-</style>
+  </style>
 </head>
 <body>
 
@@ -164,7 +419,7 @@
   </header>
 
   <main>
-    <section class="hero container" style="background:url('contacto2.jpg') center/cover no-repeat;">
+    <section class="hero container" style="background:url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;">
       <div class="hero-left">
         <div class="logo-big">Contáctanos</div>
         <div class="tag">Estamos aquí para ayudarte</div>
@@ -175,10 +430,11 @@
       <div class="panel">
         <div class="card" style="flex: 2;">
           <h2><i class="fas fa-envelope"></i> Envíanos un mensaje</h2>
-          <!-- Formulario de contacto con Formspree -->
-          <form class="contact-form" action="https://formspree.io/f/mdkdrzpv" method="POST">
+          <!-- Formulario de contacto con GetForm -->
+          <form class="contact-form" id="contactForm" action="https://getform.io/f/allqqrea" method="POST">
             <input type="hidden" name="_subject" value="Nuevo mensaje de contacto - Moto Rat">
-            <input type="hidden" name="_format" value="plain">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_formType" value="contacto">
             
             <div class="form-row">
               <div class="form-group">
@@ -195,7 +451,11 @@
               <textarea class="form-control" name="mensaje" placeholder="Tu mensaje" required></textarea>
             </div>
             <button class="btn btn-primary" type="submit">Enviar Mensaje</button>
-            <div id="formFeedback" style="margin-top: 16px; display: none;"></div>
+            <div id="contactLoading" class="form-loading">
+              <div class="spinner"></div>
+              <p>Enviando mensaje...</p>
+            </div>
+            <div id="contactFeedback" class="form-feedback"></div>
           </form>
         </div>
 
@@ -227,10 +487,10 @@
       <h2><i class="fas fa-credit-card"></i> Solicita tu Crédito</h2>
       <p class="muted">Completa este formulario para pre-calificarte a nuestras Flexi Cuotas.</p>
       
-      <!-- Formulario de crédito con Formspree -->
-      <form action="https://formspree.io/f/mdkdrzpv" method="POST" style="max-width: 640px; margin-top: 24px;">
+      <!-- Formulario de crédito con GetForm -->
+      <form id="creditForm" action="https://getform.io/f/allqqrea" method="POST" style="max-width: 640px; margin-top: 24px;">
         <input type="hidden" name="_subject" value="Solicitud de crédito - Moto Rat">
-        <input type="hidden" name="_format" value="plain">
+        <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_formType" value="solicitudCredito">
         
         <div class="form-row">
@@ -262,6 +522,11 @@
         </div>
         
         <button class="btn btn-primary" type="submit">Solicitar Crédito</button>
+        <div id="creditLoading" class="form-loading">
+          <div class="spinner"></div>
+          <p>Enviando solicitud...</p>
+        </div>
+        <div id="creditFeedback" class="form-feedback"></div>
       </form>
     </section>
   </main>
@@ -296,7 +561,6 @@
           <div class="social-links">
             <a href="https://www.facebook.com/share/16tjynrNsG/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/h9u47uw7?igsh=anpyMWNwN3Jhc3hj" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
- 
           </div>
         </div>
       </div>
@@ -309,30 +573,93 @@
     document.getElementById('year').textContent = new Date().getFullYear();
     
     // Manejo del menú móvil
-    document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.getElementById('menuToggle').addEventListener('click', function() {
       document.getElementById('main-menu').classList.toggle('show');
     });
     
     // Manejo de envío de formularios
-    const forms = document.querySelectorAll('form');
-    
-    forms.forEach(form => {
-      form.addEventListener('submit', function(e) {
-        // Aquí podrías agregar validación adicional si es necesario
-        console.log('Formulario enviado a Formspree');
-        
-        // Opcional: mostrar mensaje de éxito después de enviar
-        setTimeout(() => {
-          alert('¡Formulario enviado con éxito! Te contactaremos pronto.');
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = this;
+      const feedback = document.getElementById('contactFeedback');
+      const loading = document.getElementById('contactLoading');
+      
+      // Mostrar indicador de carga
+      loading.style.display = 'block';
+      feedback.className = 'form-feedback';
+      feedback.textContent = '';
+      
+      // Crear FormData para enviar
+      const formData = new FormData(form);
+      
+      // Enviar datos a GetForm
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        loading.style.display = 'none';
+        if (response.ok) {
+          feedback.textContent = '¡Formulario enviado con éxito! Te contactaremos pronto.';
+          feedback.className = 'form-feedback success';
           form.reset();
-        }, 1000);
+        } else {
+          feedback.textContent = 'Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.';
+          feedback.className = 'form-feedback error';
+        }
+      })
+      .catch(error => {
+        loading.style.display = 'none';
+        feedback.textContent = 'Error de conexión. Por favor, inténtalo de nuevo.';
+        feedback.className = 'form-feedback error';
+      });
+    });
+    
+    document.getElementById('creditForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = this;
+      const feedback = document.getElementById('creditFeedback');
+      const loading = document.getElementById('creditLoading');
+      
+      // Mostrar indicador de carga
+      loading.style.display = 'block';
+      feedback.className = 'form-feedback';
+      feedback.textContent = '';
+      
+      // Crear FormData para enviar
+      const formData = new FormData(form);
+      
+      // Enviar datos a GetForm
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        loading.style.display = 'none';
+        if (response.ok) {
+          feedback.textContent = '¡Solicitud enviada con éxito! Te contactaremos pronto.';
+          feedback.className = 'form-feedback success';
+          form.reset();
+        } else {
+          feedback.textContent = 'Hubo un error al enviar la solicitud. Por favor, inténtalo de nuevo.';
+          feedback.className = 'form-feedback error';
+        }
+      })
+      .catch(error => {
+        loading.style.display = 'none';
+        feedback.textContent = 'Error de conexión. Por favor, inténtalo de nuevo.';
+        feedback.className = 'form-feedback error';
       });
     });
   </script>
 </body>
 </html>
-
-
 
 
 
